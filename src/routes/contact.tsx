@@ -6,6 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 
+// Client's WhatsApp number — country code + number, digits only (+91 77699 78772)
+const WHATSAPP_NUMBER = "918208802554";
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -64,9 +67,24 @@ function ContactPage() {
     defaultValues: { product: "All Products" },
   });
 
-  const onSubmit = async (_data: FormValues) => {
-    await new Promise((r) => setTimeout(r, 500));
-    toast.success("Thank you! We'll get back to you within 24 hours.");
+  const onSubmit = (data: FormValues) => {
+    const lines = [
+      "*New Enquiry — SunilWays Exports*",
+      `Name: ${data.name}`,
+      data.company ? `Company: ${data.company}` : null,
+      `Email: ${data.email}`,
+      `Phone: ${data.phone}`,
+      data.country ? `Country: ${data.country}` : null,
+      `Product: ${data.product}`,
+      `Message: ${data.message}`,
+    ].filter(Boolean);
+
+    const text = encodeURIComponent(lines.join("\n"));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    window.open(url, "_blank");
+
+    toast.success("Opening WhatsApp… tap Send to deliver your enquiry.");
     reset({ product: "All Products" });
   };
 
