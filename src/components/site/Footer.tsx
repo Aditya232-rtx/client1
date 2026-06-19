@@ -69,7 +69,7 @@ export function Footer() {
       <div className="border-t border-accent/40">
         <div className="mx-auto max-w-7xl px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/70">
           <p>© {new Date().getFullYear()} SunilWays Exports Pvt Ltd. All Rights Reserved.</p>
-          <p>Designed with <span className="text-accent">♥</span> in India</p>
+          
         </div>
       </div>
     </footer>
