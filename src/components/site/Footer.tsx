@@ -25,8 +25,8 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-white/75">
             <FLink to="/">Home</FLink>
             <FLink to="/about">About Company</FLink>
-            <FLink to="/key-persons">Key Persons</FLink>
-            <FLink to="/certifications">Certifications</FLink>
+            <FLink to="/about" hash="leadership">Key Persons</FLink>
+            <FLink to="/about" hash="certifications">Certifications</FLink>
             <FLink to="/services">Services</FLink>
             <FLink to="/contact">Contact Us</FLink>
           </ul>
@@ -35,12 +35,12 @@ export function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4 text-base">Products</h4>
           <ul className="space-y-2 text-sm text-white/75">
-            <FLink to="/products">Kokum &amp; Derivatives</FLink>
+            <FLink to="/products">Kokum &​amp; Derivatives</FLink>
             <FLink to="/products">Cashew Nuts</FLink>
             <FLink to="/products">Spices</FLink>
             <FLink to="/products">Coconut Products</FLink>
             <FLink to="/products">Dry Fish</FLink>
-            <FLink to="/products">Mango &amp; Jackfruit Products</FLink>
+            <FLink to="/products">Mango &​amp; Jackfruit Products</FLink>
             <FLink to="/products">View All Products</FLink>
           </ul>
         </div>
@@ -76,10 +76,10 @@ export function Footer() {
   );
 }
 
-function FLink({ to, children }: { to: string; children: React.ReactNode }) {
+function FLink({ to, hash, children }: { to: string; hash?: string; children: React.ReactNode }) {
   return (
     <li>
-      <Link to={to} className="hover:text-accent transition">
+      <Link to={to} hash={hash} className="hover:text-accent transition">
         {children}
       </Link>
     </li>
