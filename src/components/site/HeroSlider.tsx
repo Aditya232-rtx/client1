@@ -12,7 +12,7 @@ const slides: Slide[] = [
   {
     image:
       "https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1920&q=80",
-    tag: "INDIA'S COASTAL FLAVOURS, EXPORTED WORLDWIDE",
+    tag: "Premium Indian Agricultural & Konkan Specialty Products for Global Buyers",
     heading: "Welcome to SunilWays Exports Pvt Ltd",
     subtext:
       "Your trusted partner for premium Indian agricultural produce and traditional food products.",

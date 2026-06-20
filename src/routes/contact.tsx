@@ -117,8 +117,8 @@ function ContactPage() {
 
             <div className="rounded-xl overflow-hidden border border-border">
               <iframe
-                title="SunilWays Exports location — Kankavli"
-                src="https://www.google.com/maps?q=Kankavli,Sindhudurga,Maharashtra&output=embed"
+                title="SunilWays Exports location"
+                src="https://www.google.com/maps?q=16.4476654,73.6565122&z=16&output=embed"
                 className="w-full h-72"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
