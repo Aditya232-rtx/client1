@@ -9,6 +9,8 @@ import apedaAsset from "@/assets/certs/apeda.png";
 import mpedaAsset from "@/assets/certs/mpeda.jpg";
 import msmeAsset from "@/assets/certs/msme.png";
 import iecAsset from "@/assets/certs/iec.png";
+import fssaiAsset from "@/assets/certs/fssai.jpg";
+import phytosanitaryAsset from "@/assets/certs/phytosanitary.jpg";
 import {
   Leaf,
   Ship,
@@ -97,6 +99,8 @@ const certs = [
   { name: "MPEDA", logo: mpedaAsset },
   { name: "MSME", logo: msmeAsset },
   { name: "IEC", logo: iecAsset },
+  { name: "FSSAI", logo: fssaiAsset },
+  { name: "Phytosanitary", logo: phytosanitaryAsset },
 ];
 
 function HomePage() {
@@ -227,7 +231,7 @@ function HomePage() {
             Memberships &amp; Certifications
           </h2>
           <div className="mx-auto mt-4 h-[2px] w-14 bg-accent" />
-          <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="mt-10 grid grid-cols-3 gap-6 max-w-4xl mx-auto">
             {certs.map((c) => (
               <div
                 key={c.name}

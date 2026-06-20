@@ -7,6 +7,8 @@ import apedaAsset from "@/assets/certs/apeda.png";
 import mpedaAsset from "@/assets/certs/mpeda.jpg";
 import msmeAsset from "@/assets/certs/msme.png";
 import iecAsset from "@/assets/certs/iec.png";
+import fssaiAsset from "@/assets/certs/fssai.jpg";
+import phytosanitaryAsset from "@/assets/certs/phytosanitary.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -69,6 +71,20 @@ const certs = [
     logo: iecAsset,
     about:
       "The Import Export Code, issued by the DGFT, is a mandatory 10-digit business identification number for any entity engaged in the import or export of goods and services from India.",
+  },
+  {
+    name: "FSSAI",
+    full: "Food Safety and Standards Authority of India",
+    logo: fssaiAsset,
+    about:
+      "FSSAI is the statutory body under India's Ministry of Health that regulates and supervises food safety, setting standards for food products and ensuring compliance with hygiene and quality regulations.",
+  },
+  {
+    name: "Phytosanitary",
+    full: "Phytosanitary Certificate",
+    logo: phytosanitaryAsset,
+    about:
+      "A Phytosanitary Certificate is an official document issued by the plant quarantine authority certifying that exported plants and plant products are free from pests and diseases, meeting international trade requirements.",
   },
 ];
 

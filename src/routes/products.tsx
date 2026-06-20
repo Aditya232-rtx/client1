@@ -61,11 +61,11 @@ function ProductsPage() {
               title={cat.title}
               subtitle={cat.blurb}
             />
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {cat.items.map((it) => (
                 <div
                   key={it.name}
-                  className="group bg-white rounded-xl border border-border overflow-hidden hover:border-accent hover:shadow-[0_8px_24px_rgba(27,45,95,0.08)] transition-all"
+                  className="group flex flex-col bg-white rounded-xl border border-border overflow-hidden hover:border-accent hover:shadow-[0_8px_24px_rgba(27,45,95,0.08)] transition-all"
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-cream">
                     <img
@@ -75,13 +75,15 @@ function ProductsPage() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-4">
+                  <div className="flex flex-col flex-1 p-4">
                     <h3 className="text-sm sm:text-base font-semibold text-primary leading-tight">
                       {it.name}
                     </h3>
-                    {it.note && (
-                      <p className="mt-1 text-xs text-muted-foreground">{it.note}</p>
-                    )}
+                    <dl className="mt-3 space-y-2 text-xs">
+                      <Detail label="Origin" value={it.origin} />
+                      <Detail label="Available Grades" value={it.grades} />
+                      <Detail label="Packaging" value={it.packaging} />
+                    </dl>
                   </div>
                 </div>
               ))}
@@ -100,5 +102,13 @@ function ProductsPage() {
 
       <CtaBanner />
     </>
+  );
+}
+function Detail({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex gap-1.5">
+      <dt className="font-semibold text-primary shrink-0">{label}:</dt>
+      <dd className="text-muted-foreground">{value}</dd>
+    </div>
   );
 }
