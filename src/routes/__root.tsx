@@ -76,7 +76,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "SunilWays Exports Pvt Ltd is a Sindhudurga-based export house specialising in kokum, cashew nuts, spices, dry fish, coconut and traditional Konkan food products for global markets.",
+          "Premium and reliable export house for Indian agricultural and Konkan food products. Trusted global partner for kokum, cashew, spices, dry fish, coconut, rice and mango with end-to-end sourcing, quality processing and timely worldwide delivery.",
       },
       { name: "author", content: "SunilWays Exports Pvt Ltd" },
       { property: "og:type", content: "website" },
@@ -99,9 +99,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "icon",
-        type: "image/svg+xml",
-        href:
-          "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%231B2D5F'/><text x='50%25' y='56%25' text-anchor='middle' fill='%23C9A52A' font-family='Inter,sans-serif' font-weight='800' font-size='26'>SW</text></svg>",
+        type: "image/png",
+        href: "/sunilways-logo.png",
       },
     ],
   }),

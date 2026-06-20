@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Sindhudurga-based export house for kokum, cashew, spices, dry fish, coconut, rice, mango and Konkan food products. End-to-end sourcing, processing and global export.",
+          "Premium and reliable export house for Indian agricultural and Konkan food products. Trusted global partner for kokum, cashew, spices, dry fish, coconut, rice and mango with end-to-end sourcing, quality processing and timely worldwide delivery.",
       },
       { property: "og:title", content: "SunilWays Exports Pvt Ltd" },
       {
