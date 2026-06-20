@@ -50,9 +50,9 @@ export const Route = createFileRoute("/")({
 
 const stats = [
   { value: "10+", label: "Product Categories" },
-  { value: "Global", label: "Countries Served" },
-  { value: "Growing", label: "Years of Expertise" },
-  { value: "Many", label: "Happy Clients" },
+  { value: "50+", label: "Verified Suppliers" },
+  { value: "Direct", label: "Farm Sourcing" },
+  { value: "Export", label: "Documentation Support" },
 ];
 
 const services = [
