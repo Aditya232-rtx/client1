@@ -14,9 +14,9 @@ export function Footer() {
             Connecting Indian Quality to Global Markets.
           </p>
           <div className="mt-5 flex items-center gap-3">
-            <SocialIcon href="#" label="LinkedIn"><Linkedin className="h-4 w-4" /></SocialIcon>
-            <SocialIcon href="#" label="Instagram"><Instagram className="h-4 w-4" /></SocialIcon>
-            <SocialIcon href="#" label="Facebook"><Facebook className="h-4 w-4" /></SocialIcon>
+            <SocialIcon href="https://www.linkedin.com/company/sunilways-exports-pvt-ltd/" label="LinkedIn"><Linkedin className="h-4 w-4" /></SocialIcon>
+            <SocialIcon href="https://www.instagram.com/sunilways_exports_pvt_ltd/" label="Instagram"><Instagram className="h-4 w-4" /></SocialIcon>
+            <SocialIcon href="https://www.facebook.com/people/SunilWays-Exports-Pvt-Ltd/61590841127701/" label="Facebook"><Facebook className="h-4 w-4" /></SocialIcon>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ export function Footer() {
       <div className="border-t border-accent/40">
         <div className="mx-auto max-w-7xl px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-white/70">
           <p>© {new Date().getFullYear()} SunilWays Exports Pvt Ltd. All Rights Reserved.</p>
-          
+
         </div>
       </div>
     </footer>
