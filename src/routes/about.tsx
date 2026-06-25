@@ -9,6 +9,8 @@ import msmeAsset from "@/assets/certs/msme.png";
 import iecAsset from "@/assets/certs/iec.png";
 import fssaiAsset from "@/assets/certs/fssai.jpg";
 import phytosanitaryAsset from "@/assets/certs/phytosanitary.jpg";
+import directorShubhamPhoto from "@/assets/director-shubham.jpg";
+import directorSukanyaPhoto from "@/assets/director-sukanya.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -31,12 +33,14 @@ export const Route = createFileRoute("/about")({
 const people = [
   {
     initials: "SST",
+    photo: directorShubhamPhoto,
     name: "Mr. Shubham Sunil Talekar",
     role: "Director",
     bio: "Leads operations, business development and international trade partnerships for SunilWays Exports.",
   },
   {
     initials: "SKT",
+    photo: directorSukanyaPhoto,
     name: "Smt. Sukanya Sunil Talekar",
     role: "Director",
     bio: "Co-leads strategic planning, procurement and supply chain coordination at SunilWays Exports.",
@@ -152,28 +156,39 @@ function AboutPage() {
 
       {/* Key Persons / Leadership */}
       <section id="leadership" className="py-20 bg-white scroll-mt-24">
-        <div className="mx-auto max-w-5xl px-4">
+        <div className="mx-auto max-w-4xl px-4">
           <SectionHeading kicker="LEADERSHIP" title="Our Leadership Team" />
-          <div className="grid md:grid-cols-2 gap-6">
-            {people.map((p) => (
-              <div
-                key={p.initials}
-                className="bg-cream/40 rounded-xl border border-border p-8 text-center hover:border-accent transition"
-              >
-                <div className="mx-auto h-32 w-32 rounded-full bg-primary text-accent flex items-center justify-center text-3xl font-bold font-display">
-                  {p.initials}
+          <div className="flex flex-col gap-10">
+            {people.map((p, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <div
+                  key={p.initials}
+                  className={`flex items-center gap-6 md:gap-10 bg-[#f8f8f8] rounded-3xl border border-border px-6 py-6 hover:border-accent hover:shadow-[0_12px_36px_rgba(27,45,95,0.10)] transition-all duration-300 ${isEven ? "flex-row" : "flex-row-reverse"}`}
+                >
+                  {/* Circular photo */}
+                  <div className="shrink-0">
+                    <div className="h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden border-4 border-accent shadow-lg">
+                      <img
+                        src={p.photo}
+                        alt={p.name}
+                        className="h-full w-full object-cover object-[center_10%]"
+                      />
+                    </div>
+                  </div>
+                  {/* Text */}
+                  <div className={`flex-1 ${isEven ? "text-left" : "text-right"}`}>
+                    <h3 className="text-xl font-bold text-primary font-display leading-snug">
+                      {p.name}{" "}
+                      <span className="text-accent font-semibold text-base">( {p.role.toUpperCase()} )</span>
+                    </h3>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.bio}</p>
+                    <div className={`mt-3 h-[2px] w-10 bg-accent ${isEven ? "" : "ml-auto"}`} />
+                  </div>
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-primary">{p.name}</h3>
-                <div className="text-sm text-accent font-semibold uppercase tracking-wider mt-1">{p.role}</div>
-                <div className="text-xs text-muted-foreground mt-0.5">SunilWays Exports Pvt Ltd</div>
-                <div className="mx-auto mt-4 h-[2px] w-10 bg-accent" />
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.bio}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
-          <p className="mt-8 text-center text-xs text-muted-foreground italic">
-            Director photos will replace the initials avatars once provided.
-          </p>
         </div>
       </section>
 

@@ -11,6 +11,8 @@ import msmeAsset from "@/assets/certs/msme.png";
 import iecAsset from "@/assets/certs/iec.png";
 import fssaiAsset from "@/assets/certs/fssai.jpg";
 import phytosanitaryAsset from "@/assets/certs/phytosanitary.jpg";
+import directorShubhamPhoto from "@/assets/director-shubham.jpg";
+import directorSukanyaPhoto from "@/assets/director-sukanya.jpg";
 import {
   Leaf,
   Ship,
@@ -90,8 +92,8 @@ const whyUs = [
 ];
 
 const directors = [
-  { initials: "SST", name: "Mr. Shubham Sunil Talekar", role: "Director, SunilWays Exports Pvt Ltd" },
-  { initials: "SKT", name: "Smt. Sukanya Sunil Talekar", role: "Director, SunilWays Exports Pvt Ltd" },
+  { initials: "SST", photo: directorShubhamPhoto, name: "Mr. Shubham Sunil Talekar", role: "Director, SunilWays Exports Pvt Ltd" },
+  { initials: "SKT", photo: directorSukanyaPhoto, name: "Smt. Sukanya Sunil Talekar", role: "Director, SunilWays Exports Pvt Ltd" },
 ];
 
 const certs = [
@@ -214,11 +216,11 @@ function HomePage() {
 
       {/* Leadership */}
       <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-3xl px-4">
           <SectionHeading title="Our Leadership" center />
-          <div className="flex flex-wrap gap-6 justify-center">
-            {directors.map((d) => (
-              <PersonMini key={d.initials} {...d} />
+          <div className="flex flex-col gap-8">
+            {directors.map((d, i) => (
+              <PersonMini key={d.initials} index={i} {...d} />
             ))}
           </div>
         </div>
@@ -299,14 +301,32 @@ function WhyCard({ icon: Icon, title, desc }: { icon: typeof CheckCircle2; title
   );
 }
 
-function PersonMini({ initials, name, role }: { initials: string; name: string; role: string }) {
+function PersonMini({ photo, initials, name, role, index }: { photo: string; initials: string; name: string; role: string; index: number }) {
+  const isEven = index % 2 === 0;
   return (
-    <div className="w-[260px] bg-white rounded-xl border border-border p-6 text-center hover:border-accent transition">
-      <div className="mx-auto h-24 w-24 rounded-full bg-primary text-accent flex items-center justify-center text-2xl font-bold font-display">
-        {initials}
+    <div
+      className={`flex items-center gap-6 md:gap-10 bg-[#f8f8f8] rounded-3xl border border-border px-6 py-6 hover:border-accent hover:shadow-[0_12px_36px_rgba(27,45,95,0.10)] transition-all duration-300 ${
+        isEven ? "flex-row" : "flex-row-reverse"
+      }`}
+    >
+      {/* Circular photo */}
+      <div className="shrink-0">
+        <div className="h-32 w-32 md:h-40 md:w-40 rounded-full overflow-hidden border-4 border-accent shadow-lg">
+          <img
+            src={photo}
+            alt={name}
+            className="h-full w-full object-cover object-[center_10%]"
+          />
+        </div>
       </div>
-      <h3 className="mt-4 text-base font-semibold text-primary">{name}</h3>
-      <p className="mt-1 text-xs text-muted-foreground">{role}</p>
+      {/* Text */}
+      <div className={`flex-1 ${isEven ? "text-left" : "text-right"}`}>
+        <h3 className="text-lg font-bold text-primary font-display leading-snug">
+          {name}{" "}
+          <span className="text-accent font-semibold text-sm">( {role.toUpperCase()} )</span>
+        </h3>
+        <div className={`mt-3 h-[2px] w-10 bg-accent ${isEven ? "" : "ml-auto"}`} />
+      </div>
     </div>
   );
 }
