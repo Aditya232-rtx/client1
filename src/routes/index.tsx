@@ -1,3 +1,5 @@
+import { certifications } from "@/components/site/certifications";
+import { CertificationCard } from "@/components/site/CertificationCard";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HeroSlider } from "@/components/site/HeroSlider";
 import { SectionHeading } from "@/components/site/SectionHeading";
@@ -5,12 +7,6 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { products, featuredSlugs } from "@/components/site/data";
 import { useFadeIn } from "@/hooks/useFadeIn";
-import apedaAsset from "@/assets/certs/apeda.png";
-import mpedaAsset from "@/assets/certs/mpeda.jpg";
-import msmeAsset from "@/assets/certs/msme.png";
-import iecAsset from "@/assets/certs/iec.png";
-import fssaiAsset from "@/assets/certs/fssai.jpg";
-import phytosanitaryAsset from "@/assets/certs/phytosanitary.jpg";
 import directorShubhamPhoto from "@/assets/director-shubham.jpg";
 import directorSukanyaPhoto from "@/assets/director-sukanya.jpg";
 import {
@@ -96,14 +92,7 @@ const directors = [
   { initials: "SKT", photo: directorSukanyaPhoto, name: "Smt. Sukanya Sunil Talekar", role: "Director, SunilWays Exports Pvt Ltd" },
 ];
 
-const certs = [
-  { name: "APEDA", logo: apedaAsset },
-  { name: "MPEDA", logo: mpedaAsset },
-  { name: "MSME", logo: msmeAsset },
-  { name: "IEC", logo: iecAsset },
-  { name: "FSSAI", logo: fssaiAsset },
-  { name: "Phytosanitary", logo: phytosanitaryAsset },
-];
+
 
 function HomePage() {
   const featured = featuredSlugs
@@ -233,19 +222,9 @@ function HomePage() {
             Memberships &amp; Certifications
           </h2>
           <div className="mx-auto mt-4 h-[2px] w-14 bg-accent" />
-          <div className="mt-10 grid grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {certs.map((c) => (
-              <div
-                key={c.name}
-                className="bg-white rounded-xl p-4 flex items-center justify-center h-28"
-              >
-                <img
-                  src={c.logo}
-                  alt={`${c.name} logo`}
-                  className="max-h-full max-w-full object-contain"
-                  loading="lazy"
-                />
-              </div>
+          <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {certifications.map((certificate) => (
+              <CertificationCard key={certificate.name} certificate={certificate} compact />
             ))}
           </div>
         </div>

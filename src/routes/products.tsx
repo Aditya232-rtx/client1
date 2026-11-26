@@ -31,7 +31,7 @@ function ProductsPage() {
       <section className="py-14 bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-muted-foreground leading-relaxed">
-            We deal in a wide range of agricultural produce and traditional food products, sourced
+            We deal in a wide range of agricultural produce and traditional food and personal care products, sourced
             directly from the Konkan coast and across India. All items below are available for
             domestic trading and international export, in custom packaging and bulk quantities.
           </p>

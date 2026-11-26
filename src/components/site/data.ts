@@ -1,11 +1,43 @@
+import farmGrapes from "@/assets/catalog/generated/grapes.webp";
+import farmAlphonsoMango from "@/assets/catalog/generated/alphonso-mango.webp";
+import farmPomegranate from "@/assets/catalog/generated/pomegranate.webp";
+import farmGuava from "@/assets/catalog/generated/guava.webp";
+import farmSweetLime from "@/assets/catalog/generated/sweet-lime.webp";
+import farmBanana from "@/assets/catalog/generated/banana.webp";
+import farmJackfruit from "@/assets/catalog/generated/jackfruit.webp";
+import farmPineapple from "@/assets/catalog/generated/pineapple.webp";
+import farmOnion from "@/assets/catalog/generated/onion.webp";
+import farmTomato from "@/assets/catalog/generated/tomato.webp";
+import farmGarlic from "@/assets/catalog/generated/garlic.webp";
+import farmGinger from "@/assets/catalog/generated/ginger.webp";
+import farmGreenChilli from "@/assets/catalog/generated/green-chilli.webp";
+import farmLemon from "@/assets/catalog/generated/lemon.webp";
+import farmBasmatiRice from "@/assets/catalog/generated/basmati-rice.webp";
+import farmNonBasmatiRice from "@/assets/catalog/generated/non-basmati-rice.webp";
+import farmSonaMasooriRice from "@/assets/catalog/generated/sona-masoori-rice.webp";
+import farmKolamRice from "@/assets/catalog/generated/kolam-rice.webp";
+import farmIndrayaniRice from "@/assets/catalog/generated/indrayani-rice.webp";
+import farmBajra from "@/assets/catalog/generated/bajra.webp";
+import farmMaize from "@/assets/catalog/generated/maize.webp";
+import farmCashewNuts from "@/assets/catalog/generated/cashew-nuts.webp";
+import farmCashewKernels from "@/assets/catalog/generated/cashew-kernels.webp";
+import farmGroundnuts from "@/assets/catalog/generated/groundnuts.webp";
+import farmRaisins from "@/assets/catalog/generated/raisins.webp";
+import farmTurmeric from "@/assets/catalog/generated/turmeric.webp";
+import farmFreshCoconut from "@/assets/catalog/generated/fresh-coconut.webp";
+import farmCoconutShellProducts from "@/assets/catalog/generated/coconut-shell-products.webp";
+import farmHoney from "@/assets/catalog/generated/honey.webp";
+import farmKokumSyrup from "@/assets/catalog/generated/kokum-syrup.webp";
+import farmKokumButter from "@/assets/catalog/generated/kokum-butter.webp";
+import farmLipBalm from "@/assets/catalog/generated/lip-balm.webp";
 import fruitsVeg from "@/assets/product-fruits-veg.jpg";
 import spices from "@/assets/product-spices.jpg";
-import dryfruits from "@/assets/product-dryfruits-cashew.jpg";
-import kokum from "@/assets/product-kokum.jpg";
+import dryfruits from "@/assets/generated/category-dry-fruits-cashew.webp";
+import kokum from "@/assets/generated/category-kokum.webp";
 import dryfish from "@/assets/product-dryfish.jpg";
 import coconut from "@/assets/product-coconut.jpg";
 import rice from "@/assets/product-rice.jpg";
-import mangoJack from "@/assets/product-mango-jackfruit.jpg";
+import mangoJack from "@/assets/generated/category-mango-jackfruit.webp";
 import pickles from "@/assets/product-pickles.jpg";
 import onionGrapes from "@/assets/product-onion-grapes.jpg";
 
@@ -92,7 +124,7 @@ export const products: Product[] = [
 
 export const featuredSlugs = ["kokum", "dry-fruits-cashew", "spices", "coconut", "mango-jackfruit", "dry-fish"];
 
-// Detailed catalog grouped by category. Item images are real photos hosted on Wikimedia Commons.
+// Detailed catalog grouped by category. Approved generated imagery is bundled locally.
 export type CatalogItem = {
   name: string;
   image: string;
@@ -109,19 +141,12 @@ export type CatalogCategory = {
 
 const wm = (p: string) => `https://upload.wikimedia.org/wikipedia/commons/${p}`;
 
-import bajraAsset from "@/assets/catalog/bajra.jpeg";
 import blackpepperAsset from "@/assets/catalog/blackpepper.jpeg";
-import cornAsset from "@/assets/catalog/corn.jpeg";
 import cuminAsset from "@/assets/catalog/cuminseeds.jpeg";
-import indrayaniAsset from "@/assets/catalog/indrayanirice.jpeg";
 import jaggeryAsset from "@/assets/catalog/jaggery.jpeg";
 import jaggeryPowderAsset from "@/assets/catalog/jaggerypowder.jpeg";
-import kernelsAsset from "@/assets/catalog/kernels.jpeg";
 import kokumAgarAsset from "@/assets/catalog/kokum-agar.jpg";
-import mangoAsset from "@/assets/catalog/mango.jpeg";
 import kokumAsset from "@/assets/catalog/kokum.jpg";
-import kokumSyrupAsset from "@/assets/catalog/kokumsyrup.jpeg";
-import mosambiAsset from "@/assets/catalog/mosambi.jpeg";
 import pickleAsset from "@/assets/catalog/pickle.jpeg";
 import redchilliAsset from "@/assets/catalog/redchilli.png";
 
@@ -133,56 +158,56 @@ export const catalog: CatalogCategory[] = [
     items: [
             {
         name: "Grapes",
-        image: wm("thumb/5/53/Grapes%2C_Rostov-on-Don%2C_Russia.jpg/960px-Grapes%2C_Rostov-on-Don%2C_Russia.jpg"),
+        image: farmGrapes,
         origin: "Nashik & Sangli, Maharashtra",
         grades: "Thompson Seedless, Sonaka, Sharad Seedless",
         packaging: "4–5 kg punnets & export cartons, cold-chain",
       },
       {
         name: "Alphonso Mango",
-        image: mangoAsset,
+        image: farmAlphonsoMango,
         origin: "Ratnagiri & Devgad, Konkan (GI-tagged)",
         grades: "A & B grade; 4, 5 & 6 dozen sizes",
         packaging: "Ventilated corrugated boxes, 4 dozen",
       },
       {
         name: "Pomegranate",
-        image: wm("thumb/6/6b/Pomegranate_fruit.jpg/960px-Pomegranate_fruit.jpg"),
+        image: farmPomegranate,
         origin: "Solapur & Nashik, Maharashtra",
         grades: "Bhagwa — Super, King & Queen sizes",
         packaging: "3.5–5 kg corrugated boxes",
       },
       {
         name: "Guava",
-        image: wm("thumb/8/84/Goiaba_vermelha.jpg/960px-Goiaba_vermelha.jpg"),
+        image: farmGuava,
         origin: "Maharashtra",
         grades: "Allahabad Safeda, L-49 (Sardar)",
         packaging: "Bulk crates & export cartons",
       },
       {
         name: "Sweet Lime (Mosambi)",
-        image: mosambiAsset,
+        image: farmSweetLime,
         origin: "Marathwada, Maharashtra",
         grades: "Counts 80–150; A & B grade",
         packaging: "10–15 kg mesh bags / cartons",
       },
       {
         name: "Banana",
-        image: wm("thumb/3/32/DFC_4184_Bunches_of_ripe_bananas_neatly_arranged_at_a_bustling_market_stall_ready_for_shoppers.jpg/960px-DFC_4184_Bunches_of_ripe_bananas_neatly_arranged_at_a_bustling_market_stall_ready_for_shoppers.jpg"),
+        image: farmBanana,
         origin: "Jalgaon, Maharashtra",
         grades: "Cavendish (G9), Robusta",
         packaging: "13–14.5 kg export cartons",
       },
       {
         name: "Jackfruit",
-        image: wm("3/3b/The_jackfruit_is_holding_on_to_the_tree.jpg"),
+        image: farmJackfruit,
         origin: "Konkan region, Maharashtra",
         grades: "Whole & cut; raw and ripe",
         packaging: "Crates & vacuum packs",
       },
       {
         name: "Pineapple",
-        image: wm("thumb/7/75/AnanasComosusOnPlant.jpg/960px-AnanasComosusOnPlant.jpg"),
+        image: farmPineapple,
         origin: "India",
         grades: "Queen & MD-2; A & B grade",
         packaging: "Export cartons, single layer",
@@ -196,42 +221,42 @@ export const catalog: CatalogCategory[] = [
     items: [
             {
         name: "Onion",
-        image: wm("thumb/9/9f/Red_Onion_on_White.JPG/960px-Red_Onion_on_White.JPG"),
+        image: farmOnion,
         origin: "Nashik & Lasalgaon, Maharashtra",
         grades: "Red, white & rose; 35–55 mm & 55–70 mm",
         packaging: "5 / 10 / 20 / 25 kg mesh bags",
       },
       {
         name: "Tomato",
-        image: wm("8/89/Tomato_je.jpg"),
+        image: farmTomato,
         origin: "Maharashtra & Karnataka",
         grades: "Hybrid round; A & B grade",
         packaging: "10 kg ventilated crates",
       },
       {
         name: "Garlic",
-        image: wm("thumb/9/9a/Garlic_bulbs_and_cloves.jpg/960px-Garlic_bulbs_and_cloves.jpg"),
+        image: farmGarlic,
         origin: "Madhya Pradesh & Maharashtra",
         grades: "Bulb counts 25–40; 40–50 mm",
         packaging: "5 / 10 kg mesh bags",
       },
       {
         name: "Ginger",
-        image: wm("thumb/f/fb/Fresh_ginger_rhizome_01.jpg/960px-Fresh_ginger_rhizome_01.jpg"),
+        image: farmGinger,
         origin: "Karnataka & Maharashtra",
         grades: "Fresh mature; 150 g+ hands",
         packaging: "Bulk 10–20 kg cartons",
       },
       {
         name: "Green Chilli",
-        image: wm("thumb/5/57/Green_Chili.jpg/960px-Green_Chili.jpg"),
+        image: farmGreenChilli,
         origin: "Maharashtra & Andhra Pradesh",
         grades: "G4, Jwala varieties",
         packaging: "5–10 kg crates",
       },
       {
         name: "Lemon",
-        image: wm("thumb/e/e4/Lemon.jpg/960px-Lemon.jpg"),
+        image: farmLemon,
         origin: "Maharashtra & Andhra Pradesh",
         grades: "Kagzi; counts 100–200",
         packaging: "Mesh bags & cartons",
@@ -245,49 +270,49 @@ export const catalog: CatalogCategory[] = [
     items: [
             {
         name: "Basmati Rice",
-        image: wm("thumb/f/f8/Basmati_Rice_India%2C_raw.jpg/960px-Basmati_Rice_India%2C_raw.jpg"),
+        image: farmBasmatiRice,
         origin: "Punjab & Haryana, North India",
         grades: "1121, 1509, Pusa, Traditional; raw / steamed / sella",
         packaging: "5 / 10 / 25 / 50 kg bags & jute",
       },
       {
         name: "Non-Basmati Rice",
-        image: wm("0/0a/20201102.Hengnan.Hybrid_rice_Sanyou-1.6.jpg"),
+        image: farmNonBasmatiRice,
         origin: "India",
         grades: "IR64, Swarna, Parmal; 5% & 25% broken",
         packaging: "25 / 50 kg bags",
       },
       {
         name: "Sona Masoori Rice",
-        image: wm("8/8a/Sona-masuri.jpg"),
+        image: farmSonaMasooriRice,
         origin: "Andhra Pradesh & Karnataka",
         grades: "Raw & steam polished",
         packaging: "25 / 26 / 50 kg bags",
       },
       {
         name: "Kolam Rice",
-        image: wm("d/d1/Reis_-_Sorte_C_voll.jpg"),
+        image: farmKolamRice,
         origin: "Maharashtra",
         grades: "Zeera Kolam, Surti Kolam",
         packaging: "25 / 50 kg bags",
       },
       {
         name: "Indrayani Rice",
-        image: indrayaniAsset,
+        image: farmIndrayaniRice,
         origin: "Maval, Pune, Maharashtra",
         grades: "Aromatic; polished & semi-polished",
         packaging: "5 / 10 / 25 kg bags",
       },
       {
         name: "Bajra (Pearl Millet)",
-        image: bajraAsset,
+        image: farmBajra,
         origin: "Maharashtra & Rajasthan",
         grades: "Bold, machine-cleaned",
         packaging: "25 / 50 kg bags",
       },
       {
         name: "Maize (Corn)",
-        image: cornAsset,
+        image: farmMaize,
         origin: "Maharashtra & Karnataka",
         grades: "Yellow & white; feed and food grade",
         packaging: "50 kg bags & bulk",
@@ -301,28 +326,28 @@ export const catalog: CatalogCategory[] = [
     items: [
             {
         name: "Cashew Nuts",
-        image: wm("thumb/b/b9/CASHEW_NUTS.jpg/960px-CASHEW_NUTS.jpg"),
+        image: farmCashewNuts,
         origin: "Konkan (Sindhudurga & Ratnagiri), Goa, Kerala",
         grades: "Raw cashew nuts (RCN), in-shell",
         packaging: "50 / 80 kg jute bags",
       },
       {
         name: "Cashew Kernels",
-        image: kernelsAsset,
+        image: farmCashewKernels,
         origin: "Sindhudurga, Maharashtra",
         grades: "W180, W210, W240, W320, W450; LWP & SWP",
         packaging: "Vacuum-packed 10 kg tins & pouches",
       },
       {
         name: "Groundnuts (Peanuts)",
-        image: wm("thumb/f/fb/Peanuts_%28Arachis_hypogaea%29_-_in_shell%2C_shell_cracked_open%2C_shelled%2C_peeled.jpg/960px-Peanuts_%28Arachis_hypogaea%29_-_in_shell%2C_shell_cracked_open%2C_shelled%2C_peeled.jpg"),
+        image: farmGroundnuts,
         origin: "Gujarat & Maharashtra",
         grades: "Java & Bold; 38/42, 40/50, 50/60 counts",
         packaging: "25 / 50 kg bags & vacuum",
       },
       {
         name: "Raisins",
-        image: wm("thumb/7/7d/Raisins_01.jpg/960px-Raisins_01.jpg"),
+        image: farmRaisins,
         origin: "Sangli & Nashik, Maharashtra",
         grades: "Green, golden & black; long and round",
         packaging: "10 / 15 kg cartons",
@@ -336,7 +361,7 @@ export const catalog: CatalogCategory[] = [
     items: [
             {
         name: "Turmeric",
-        image: wm("thumb/f/f0/Turmeric_Powder_on_a_Spoon_-_Black_Background.jpg/960px-Turmeric_Powder_on_a_Spoon_-_Black_Background.jpg"),
+        image: farmTurmeric,
         origin: "Sangli, Maharashtra & Erode",
         grades: "Fingers & powder; Salem, Rajapuri; high curcumin",
         packaging: "25 / 50 kg bags",
@@ -378,7 +403,7 @@ export const catalog: CatalogCategory[] = [
     items: [
             {
         name: "Fresh Coconut",
-        image: wm("thumb/9/9c/Coconut_Fruit_%2899202%29.jpg/960px-Coconut_Fruit_%2899202%29.jpg"),
+        image: farmFreshCoconut,
         origin: "Konkan coast & South India",
         grades: "Semi-husked & fully husked; 400–800 g",
         packaging: "Mesh bags & bulk",
@@ -399,7 +424,7 @@ export const catalog: CatalogCategory[] = [
       },
       {
         name: "Coconut Shell Products",
-        image: wm("thumb/5/5c/Coir_doormat.jpg/960px-Coir_doormat.jpg"),
+        image: farmCoconutShellProducts,
         origin: "Konkan region",
         grades: "Shell charcoal, coir & doormats",
         packaging: "Bulk & cartons",
@@ -427,7 +452,7 @@ export const catalog: CatalogCategory[] = [
       },
       {
         name: "Honey",
-        image: wm("thumb/2/24/Three_French_monofloral_honey_jars.jpg/960px-Three_French_monofloral_honey_jars.jpg"),
+        image: farmHoney,
         origin: "India (multifloral & forest)",
         grades: "Raw & filtered; multifloral, forest",
         packaging: "Jars & drums",
@@ -469,10 +494,31 @@ export const catalog: CatalogCategory[] = [
       },
       {
         name: "Kokum Syrup",
-        image: kokumSyrupAsset,
+        image: farmKokumSyrup,
         origin: "Sindhudurga, Konkan",
         grades: "Ready-to-dilute; sweetened",
         packaging: "700 ml bottles & bulk",
+      },
+    ],
+  },
+  {
+    title: "Kokum Butter & Lip Balm",
+    slug: "kokum-butter-lip-balm",
+    blurb: "Kokum butter and lip balm. Contact our team for product specifications and packaging options.",
+    items: [
+      {
+        name: "Kokum Butter",
+        image: farmKokumButter,
+        origin: "On request",
+        grades: "Specifications on request",
+        packaging: "Packaging options on request",
+      },
+      {
+        name: "Lip Balm",
+        image: farmLipBalm,
+        origin: "On request",
+        grades: "Specifications on request",
+        packaging: "Packaging options on request",
       },
     ],
   },
