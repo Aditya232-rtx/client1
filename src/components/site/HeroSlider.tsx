@@ -43,7 +43,7 @@ export function HeroSlider() {
   }, []);
 
   return (
-    <section className="relative h-[88vh] min-h-[560px] max-h-[760px] overflow-hidden">
+    <section className="hero-slider relative h-[88vh] min-h-[560px] max-h-[760px] overflow-hidden">
       {slides.map((s, i) => (
         <div
           key={i}

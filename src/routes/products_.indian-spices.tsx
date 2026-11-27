@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { catalog } from "@/components/site/data";
-import corianderImage from "@/assets/catalog/coriander.jpg";
+import corianderImage480 from "@/assets/optimized/catalog/coriander-480.webp";
+import corianderImage960 from "@/assets/optimized/catalog/coriander-960.webp";
 import { ArrowUpRight, Check } from "lucide-react";
 
 const spices = catalog.find((category) => category.slug === "spices")!.items;
@@ -64,7 +65,17 @@ function SpicesPage() {
           {spices.map((spice, index) => (
             <section key={spice.name} className={`overflow-hidden rounded-xl border border-border bg-white ${index < 2 ? "lg:col-span-3" : "lg:col-span-2"} ${index === 4 ? "sm:col-span-2" : ""}`}>
               <div className={index < 2 ? "aspect-[16/9] overflow-hidden bg-cream" : "aspect-[4/3] overflow-hidden bg-cream"}>
-                <img src={spice.name === "Coriander Seeds" ? corianderImage : spice.image} alt={`${spice.name}, representative product image`} width={1200} height={900} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                <img
+                  src={spice.name === "Coriander Seeds" ? corianderImage960 : typeof spice.image === "string" ? spice.image : spice.image.src}
+                  srcSet={spice.name === "Coriander Seeds" ? `${corianderImage480} 480w, ${corianderImage960} 960w` : typeof spice.image === "string" ? undefined : spice.image.srcSet}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  alt={`${spice.name}, representative product image`}
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover"
+                />
               </div>
               <div className="p-5 sm:p-6">
                 <h3 className="text-2xl font-semibold text-primary">{spice.name}</h3>

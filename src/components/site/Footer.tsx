@@ -21,7 +21,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-semibold mb-4 text-base">Quick Links</h4>
+          <h2 className="text-white font-semibold mb-4 text-base">Quick Links</h2>
           <ul className="space-y-2 text-sm text-white/75">
             <FLink to="/">Home</FLink>
             <FLink to="/about">About Company</FLink>
@@ -33,7 +33,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-semibold mb-4 text-base">Products</h4>
+          <h2 className="text-white font-semibold mb-4 text-base">Products</h2>
           <ul className="space-y-2 text-sm text-white/75">
             <FLink to="/products/kokum">Kokum &amp; Derivatives</FLink>
             <FLink to="/products/cashew-kernels">Cashew Kernels</FLink>
@@ -48,7 +48,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>
+          <h2 className="text-white font-semibold mb-4 text-base">Contact</h2>
           <ul className="space-y-3 text-sm text-white/80">
             <li className="flex gap-2.5">
               <MapPin className="h-4 w-4 text-accent shrink-0 mt-0.5" />
@@ -93,7 +93,7 @@ function SocialIcon({ href, label, children }: { href: string; label: string; ch
     <a
       href={href}
       aria-label={label}
-      className="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-accent hover:border-accent transition"
+      className="h-11 w-11 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-accent hover:border-accent transition"
     >
       {children}
     </a>

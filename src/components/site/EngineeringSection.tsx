@@ -47,12 +47,12 @@ export function EngineeringSection({ preview = false }: { preview?: boolean }) {
         </div>
         {!preview && (
           <div className="mt-12">
-            <h3 className="text-xl font-semibold text-primary">Our sourcing categories</h3>
+            <h2 className="text-xl font-semibold text-primary">Our sourcing categories</h2>
             <ul className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {categories.map(({ title, image }) => (
                 <li key={title} className="overflow-hidden rounded-xl border border-border bg-white">
                   <img src={image} alt={`${title} prepared in bulk in an industrial warehouse`} width={1200} height={900} loading="lazy" className="w-full aspect-[4/3] object-cover" />
-                  <h4 className="p-4 font-semibold text-primary leading-snug">{title}</h4>
+                  <h3 className="p-4 font-semibold text-primary leading-snug">{title}</h3>
                 </li>
               ))}
             </ul>

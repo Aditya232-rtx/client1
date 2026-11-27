@@ -35,6 +35,22 @@
   --font-display: "Poppins", "Inter", system-ui, sans-serif;
 }
 
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500 800;
+  font-display: swap;
+  src: url("/fonts/poppins-latin.woff2") format("woff2");
+}
+
 :root {
   --radius: 0.75rem;
   --background: oklch(1 0 0);
@@ -114,8 +130,17 @@
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: #765b00;
   font-weight: 600;
+}
+
+.text-accent {
+  color: #765b00;
+}
+
+.bg-primary .text-accent,
+.hero-slider .text-accent {
+  color: var(--color-accent);
 }
 
 .fade-in {
