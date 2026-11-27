@@ -1,3 +1,4 @@
+import { EngineeringSection } from "@/components/site/EngineeringSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
@@ -12,10 +13,10 @@ export const Route = createFileRoute("/products")({
       {
         name: "description",
         content:
-          "Detailed catalog: fresh fruits & vegetables, rice & grains, cashew & dry fruits, spices, coconut products, jaggery, honey, kokum and more — for domestic trade and export.",
+          "Explore Indian agricultural and food products, dry cow dung, engineering goods and industrial supplies. Contact SunilWays Exports for sourcing and export enquiries.",
       },
       { property: "og:title", content: "Product Catalog — SunilWays Exports" },
-      { property: "og:description", content: "Detailed B2B catalog of Indian agricultural produce and traditional Konkan food products." },
+      { property: "og:description", content: "Agricultural products, engineering goods and industrial supplies for B2B sourcing and export." },
       { property: "og:url", content: "/products" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
@@ -31,11 +32,12 @@ function ProductsPage() {
       <section className="py-14 bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-muted-foreground leading-relaxed">
-            We deal in a wide range of agricultural produce and traditional food and personal care products, sourced
-            directly from the Konkan coast and across India. All items below are available for
-            domestic trading and international export, in custom packaging and bulk quantities.
+            We source agricultural produce, traditional food and personal care products, natural
+            by-products, engineering goods and industrial supplies from across India. Contact
+            our team for product specifications, packaging and export requirements.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <a href="#engineering-goods" className="text-xs sm:text-sm px-3 py-1.5 rounded-full border border-primary text-primary hover:bg-cream transition">Engineering Goods &amp; Industrial Products</a>
             {catalog.map((c) => (
               <a
                 key={c.slug}
@@ -49,6 +51,8 @@ function ProductsPage() {
         </div>
       </section>
 
+      <EngineeringSection />
+
       {catalog.map((cat, idx) => (
         <section
           key={cat.slug}
@@ -61,7 +65,7 @@ function ProductsPage() {
               title={cat.title}
               subtitle={cat.blurb}
             />
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className={`mt-10 grid gap-5 ${cat.items.length === 1 ? "max-w-md mx-auto grid-cols-1" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
               {cat.items.map((it) => (
                 <div
                   key={it.name}

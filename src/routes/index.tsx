@@ -1,3 +1,4 @@
+import { EngineeringSection } from "@/components/site/EngineeringSection";
 import { certifications } from "@/components/site/certifications";
 import { CertificationCard } from "@/components/site/CertificationCard";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -29,17 +30,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SunilWays Exports Pvt Ltd — Premium Indian Agricultural Exports" },
+      { title: "SunilWays Exports Pvt Ltd — Indian Agricultural & Engineering Exports" },
       {
         name: "description",
         content:
-          "Premium and reliable export house for Indian agricultural and Konkan food products. Trusted global partner for kokum, cashew, spices, dry fish, coconut, rice and mango with end-to-end sourcing, quality processing and timely worldwide delivery.",
+          "SunilWays Exports sources Indian agricultural and Konkan food products, engineering goods and industrial supplies for global buyers, with supplier coordination, quality assurance and export logistics.",
       },
       { property: "og:title", content: "SunilWays Exports Pvt Ltd" },
       {
         property: "og:description",
         content:
-          "Premium Indian agricultural and traditional Konkan food products — sourced, processed and exported worldwide.",
+          "Indian agricultural products, engineering goods and industrial supplies — sourced for global markets.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -126,7 +127,7 @@ function HomePage() {
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 SunilWays Exports Pvt Ltd is a Sindhudurga-based export house engaged in the import,
-                export, trading and distribution of agricultural produce, food products and allied
+                export, trading and distribution of engineering goods, industrial products, agricultural produce, food products and allied
                 commodities. We specialise in traditional, regional and ethnic products of the Konkan
                 coast — including Kokum and its derivatives, Cashew Nuts, Dry Fish, Spices,
                 Coconut-based products, Mango and Jackfruit products, and more.
@@ -190,6 +191,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <EngineeringSection preview />
 
       {/* Why Us */}
       <section className="py-20 bg-cream">

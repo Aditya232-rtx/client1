@@ -41,6 +41,8 @@ export function Footer() {
             <FLink to="/products">Coconut Products</FLink>
             <FLink to="/products">Dry Fish</FLink>
             <FLink to="/products">Mango &​amp; Jackfruit Products</FLink>
+            <FLink to="/products" hash="engineering-goods">Engineering &amp; Industrial Products</FLink>
+            <FLink to="/products" hash="natural-agricultural-byproducts">Dry Cow Dung</FLink>
             <FLink to="/products">View All Products</FLink>
           </ul>
         </div>

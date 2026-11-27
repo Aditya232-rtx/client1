@@ -4,6 +4,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/sunilways-logo.png";
 
 const productItems = [
+  { label: "Engineering & Industrial Products", to: "/products", hash: "engineering-goods" },
+  { label: "Dry Cow Dung", to: "/products", hash: "natural-agricultural-byproducts" },
   { label: "Fruits & Vegetables", to: "/products" },
   { label: "Spices", to: "/products" },
   { label: "Dry Fruits & Cashew Nuts", to: "/products" },

@@ -1,3 +1,4 @@
+import dryCowDung from "@/assets/catalog/generated/dry-cow-dung.webp";
 import farmGrapes from "@/assets/catalog/generated/grapes.webp";
 import farmAlphonsoMango from "@/assets/catalog/generated/alphonso-mango.webp";
 import farmPomegranate from "@/assets/catalog/generated/pomegranate.webp";
@@ -518,6 +519,20 @@ export const catalog: CatalogCategory[] = [
         image: farmLipBalm,
         origin: "On request",
         grades: "Specifications on request",
+        packaging: "Packaging options on request",
+      },
+    ],
+  },
+  {
+    title: "Natural & Agricultural By-products",
+    slug: "natural-agricultural-byproducts",
+    blurb: "Dry cow dung for bulk sourcing. Contact our team to discuss your requirements.",
+    items: [
+      {
+        name: "Dry Cow Dung",
+        image: dryCowDung,
+        origin: "India; sourcing details on request",
+        grades: "Form and specifications on request",
         packaging: "Packaging options on request",
       },
     ],

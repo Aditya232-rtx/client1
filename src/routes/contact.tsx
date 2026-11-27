@@ -37,6 +37,8 @@ const productOptions = [
   "Rice",
   "Mango Products",
   "Pickles",
+  "Engineering Goods & Industrial Products",
+  "Dry Cow Dung",
   "Others",
 ];
 

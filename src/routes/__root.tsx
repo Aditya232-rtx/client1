@@ -73,11 +73,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SunilWays Exports Pvt Ltd — Indian Agricultural & Konkan Food Exports" },
+      { title: "SunilWays Exports Pvt Ltd — Agricultural & Engineering Goods Exports" },
       {
         name: "description",
         content:
-          "Premium and reliable export house for Indian agricultural and Konkan food products. Trusted global partner for kokum, cashew, spices, dry fish, coconut, rice and mango with end-to-end sourcing, quality processing and timely worldwide delivery.",
+          "SunilWays Exports sources Indian agricultural and Konkan food products, engineering goods and industrial supplies for global buyers, with supplier coordination, quality assurance and export logistics.",
       },
       { name: "author", content: "SunilWays Exports Pvt Ltd" },
       { property: "og:type", content: "website" },
@@ -86,7 +86,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Premium Indian agricultural and traditional Konkan food products — sourced, processed and exported worldwide.",
+          "Indian agricultural products, engineering goods and industrial supplies — sourced for global markets.",
       },
       { name: "twitter:card", content: "summary" },
     ],
