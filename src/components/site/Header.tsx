@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/sunilways-logo.png";
+const logo = "/sunilways-logo.webp";
 
 const productItems = [
   { label: "Engineering & Industrial Products", to: "/engineering-goods" },
@@ -43,7 +43,7 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 h-16 sm:h-20 flex items-center justify-between overflow-visible">
         <Link to="/" className="flex items-center gap-3 relative" aria-label="SunilWays Exports — Home">
-          <img src={logo} alt="SunilWays Exports Pvt Ltd" className="h-12 sm:h-16 w-auto" />
+          <img src={logo} alt="SunilWays Exports Pvt Ltd" width={240} height={171} fetchPriority="high" className="h-12 sm:h-16 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -66,7 +66,7 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 bg-white lg:hidden flex flex-col">
           <div className="flex items-center justify-between px-4 h-16 border-b border-border">
-            <img src={logo} alt="SunilWays Exports" className="h-12 w-auto" />
+            <img src={logo} alt="SunilWays Exports" width={240} height={171} className="h-12 w-auto" />
             <button onClick={() => setOpen(false)} aria-label="Close menu" className="min-h-11 min-w-11 p-2.5 text-primary">
               <X className="h-6 w-6" />
             </button>

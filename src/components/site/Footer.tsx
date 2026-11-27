@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Linkedin, Instagram, Facebook } from "lucide-react";
-import logo from "@/assets/sunilways-logo.png";
+const logo = "/sunilways-logo.webp";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="bg-white/95 rounded-lg p-3 inline-block">
-            <img src={logo} alt="SunilWays Exports" className="h-16 w-auto" />
+            <img src={logo} alt="SunilWays Exports" width={240} height={171} loading="lazy" decoding="async" className="h-16 w-auto" />
           </div>
           <p className="mt-4 text-sm text-white/75 leading-relaxed max-w-xs">
             Connecting Indian Quality to Global Markets.
