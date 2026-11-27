@@ -35,13 +35,13 @@ export function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-4 text-base">Products</h4>
           <ul className="space-y-2 text-sm text-white/75">
-            <FLink to="/products">Kokum &​amp; Derivatives</FLink>
-            <FLink to="/products">Cashew Nuts</FLink>
-            <FLink to="/products">Spices</FLink>
+            <FLink to="/products/kokum">Kokum &amp; Derivatives</FLink>
+            <FLink to="/products/cashew-kernels">Cashew Kernels</FLink>
+            <FLink to="/products/indian-spices">Spices</FLink>
             <FLink to="/products">Coconut Products</FLink>
             <FLink to="/products">Dry Fish</FLink>
-            <FLink to="/products">Mango &​amp; Jackfruit Products</FLink>
-            <FLink to="/products" hash="engineering-goods">Engineering &amp; Industrial Products</FLink>
+            <FLink to="/products">Mango &amp; Jackfruit Products</FLink>
+            <FLink to="/engineering-goods">Engineering &amp; Industrial Products</FLink>
             <FLink to="/products" hash="natural-agricultural-byproducts">Dry Cow Dung</FLink>
             <FLink to="/products">View All Products</FLink>
           </ul>

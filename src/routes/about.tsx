@@ -11,17 +11,17 @@ import directorSukanyaPhoto from "@/assets/director-sukanya.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — SunilWays Exports Pvt Ltd" },
+      { title: "About SunilWays Exports | Indian Merchant Exporter" },
       {
         name: "description",
         content:
-          "SunilWays Exports is a Sindhudurga-based export house handling sourcing, processing, packaging and global export of Indian agricultural and Konkan food products. Meet our leadership and certifications.",
+          "Meet SunilWays Exports, a merchant exporter based in Sindhudurga, Maharashtra. Learn about our sourcing role, team and publicly listed credentials.",
       },
       { property: "og:title", content: "About — SunilWays Exports Pvt Ltd" },
       { property: "og:description", content: "Our story, mission, vision, leadership and certifications." },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://www.sunilwaysexports.com/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://www.sunilwaysexports.com/about" }],
   }),
   component: AboutPage,
 });

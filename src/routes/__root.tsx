@@ -115,6 +115,16 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.sunilwaysexports.com/#organization",
+          name: "SunilWays Exports Pvt Ltd",
+          url: "https://www.sunilwaysexports.com/",
+          logo: "https://www.sunilwaysexports.com/sunilways-logo.png",
+          email: "office@sunilwaysexports.com",
+          telephone: "+918208802554",
+        }).replace(/</g, "\\u003c") }} />
       </head>
       <body>
         {children}

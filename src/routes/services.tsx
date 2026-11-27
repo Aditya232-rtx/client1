@@ -6,17 +6,17 @@ import { Ship, ArrowDownToLine, ArrowLeftRight, Link2 } from "lucide-react";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — SunilWays Exports Pvt Ltd" },
+      { title: "Sourcing & Export Services from India | SunilWays" },
       {
         name: "description",
         content:
-          "Export, import, trading, distribution and full supply chain management for Indian agricultural and food products.",
+          "Discuss product sourcing, supplier coordination, packaging and export requirements with SunilWays Exports in Maharashtra, India.",
       },
       { property: "og:title", content: "Services — SunilWays Exports Pvt Ltd" },
       { property: "og:description", content: "Export, import, trading and supply chain services." },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: "https://www.sunilwaysexports.com/services" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://www.sunilwaysexports.com/services" }],
   }),
   component: ServicesPage,
 });

@@ -4,18 +4,18 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/sunilways-logo.png";
 
 const productItems = [
-  { label: "Engineering & Industrial Products", to: "/products", hash: "engineering-goods" },
+  { label: "Engineering & Industrial Products", to: "/engineering-goods" },
   { label: "Dry Cow Dung", to: "/products", hash: "natural-agricultural-byproducts" },
-  { label: "Fruits & Vegetables", to: "/products" },
-  { label: "Spices", to: "/products" },
-  { label: "Dry Fruits & Cashew Nuts", to: "/products" },
-  { label: "Kokum & Derivatives", to: "/products" },
+  { label: "Fruits & Vegetables", to: "/products", hash: "fresh-fruits" },
+  { label: "Spices", to: "/products/indian-spices" },
+  { label: "Dry Fruits & Cashew Nuts", to: "/products/cashew-kernels" },
+  { label: "Kokum & Derivatives", to: "/products/kokum" },
   { label: "Dry Fish", to: "/products" },
-  { label: "Coconut Products", to: "/products" },
-  { label: "Rice", to: "/products" },
-  { label: "Mango & Jackfruit Products", to: "/products" },
-  { label: "Pickles & Condiments", to: "/products" },
-  { label: "Onion & Grapes", to: "/products" },
+  { label: "Coconut Products", to: "/products", hash: "coconut-products" },
+  { label: "Rice", to: "/products", hash: "rice-grains" },
+  { label: "Mango & Jackfruit Products", to: "/products", hash: "natural-processed" },
+  { label: "Pickles & Condiments", to: "/products", hash: "natural-processed" },
+  { label: "Onion & Grapes", to: "/products", hash: "fresh-vegetables" },
 ] as const;
 
 const aboutItems = [

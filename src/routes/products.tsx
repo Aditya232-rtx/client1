@@ -9,17 +9,17 @@ import { catalog } from "@/components/site/data";
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Product Catalog — SunilWays Exports Pvt Ltd" },
+      { title: "Export Product Catalog | SunilWays Exports" },
       {
         name: "description",
         content:
-          "Explore Indian agricultural and food products, dry cow dung, engineering goods and industrial supplies. Contact SunilWays Exports for sourcing and export enquiries.",
+          "Explore agricultural and food products, kokum, cashews, dry cow dung and engineering goods. View listed origins, grades and packaging before enquiring.",
       },
       { property: "og:title", content: "Product Catalog — SunilWays Exports" },
       { property: "og:description", content: "Agricultural products, engineering goods and industrial supplies for B2B sourcing and export." },
-      { property: "og:url", content: "/products" },
+      { property: "og:url", content: "https://www.sunilwaysexports.com/products" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "https://www.sunilwaysexports.com/products" }],
   }),
   component: ProductsPage,
 });
@@ -51,6 +51,10 @@ function ProductsPage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 py-6">
+        <Link to="/engineering-goods" className="font-semibold text-primary underline">Engineering goods sourcing and quotation requirements</Link>
+      </div>
+      <div className="mx-auto max-w-7xl px-4 pb-6"><Link to="/products/indian-spices" className="font-semibold text-primary underline">Indian spice origins, grades and wholesale sourcing</Link></div>
       <EngineeringSection />
 
       {catalog.map((cat, idx) => (
@@ -69,6 +73,7 @@ function ProductsPage() {
               {cat.items.map((it) => (
                 <div
                   key={it.name}
+                  id={`product-${it.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`}
                   className="group flex flex-col bg-white rounded-xl border border-border overflow-hidden hover:border-accent hover:shadow-[0_8px_24px_rgba(27,45,95,0.08)] transition-all"
                 >
                   <div className="aspect-[4/3] overflow-hidden bg-cream">
@@ -88,6 +93,10 @@ function ProductsPage() {
                       <Detail label="Available Grades" value={it.grades} />
                       <Detail label="Packaging" value={it.packaging} />
                     </dl>
+                    <Link to="/contact" search={{ product: it.name }} className="mt-4 inline-flex py-2 text-sm font-semibold text-primary underline">Enquire about {it.name}</Link>
+                    {it.name === "Cashew Kernels" && <Link to="/products/cashew-kernels" className="mt-2 py-2 text-sm text-primary underline">Sindhudurga cashew grades and sourcing</Link>}
+                    {it.name === "Kokum" && <Link to="/products/kokum" className="mt-2 py-2 text-sm text-primary underline">Konkan kokum supply details</Link>}
+                    {it.name === "Fruit Pulp" && <Link to="/products/alphonso-mango-pulp" className="mt-2 py-2 text-sm text-primary underline">Alphonso mango pulp enquiries</Link>}
                   </div>
                 </div>
               ))}

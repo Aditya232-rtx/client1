@@ -36,7 +36,7 @@ export function EngineeringSection({ preview = false }: { preview?: boolean }) {
                 <p>We focus on supplier coordination, quality assurance, competitive sourcing and efficient export logistics to meet the diverse requirements of global buyers.</p>
               </>}
             </div>
-            <Link to={preview ? "/products" : "/contact"} hash={preview ? "engineering-goods" : undefined} className="mt-7 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition">
+            <Link to={preview ? "/engineering-goods" : "/contact"} className="mt-7 inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition">
               {preview ? "Explore Engineering Categories" : "Discuss Your Sourcing Requirements"}
             </Link>
           </div>

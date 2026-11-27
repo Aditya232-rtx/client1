@@ -51,7 +51,10 @@ export function HeroSlider() {
           style={{ opacity: i === active ? 1 : 0 }}
           aria-hidden={i !== active}
         >
-          <img src={s.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={s.image} alt="" width={1920} height={1280}
+            srcSet={[640, 960, 1280, 1920].map((width) => `${s.image.replace("w=1920", `w=${width}`)} ${width}w`).join(", ")}
+            sizes="100vw" loading={i === 0 ? "eager" : "lazy"}
+            fetchPriority={i === 0 ? "high" : "low"} decoding="async" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/60" />
         </div>
       ))}
@@ -64,7 +67,7 @@ export function HeroSlider() {
           className="text-white text-4xl sm:text-5xl lg:text-[52px] font-bold max-w-4xl leading-tight"
           style={{ color: "white" }}
         >
-          {slides[active].heading}
+          Indian Agricultural Products & Engineering Goods for Global Buyers
         </h1>
         <p className="mt-5 text-base sm:text-lg text-white/90 max-w-2xl">
           {slides[active].subtext}

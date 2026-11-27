@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { productOptions } from "@/lib/product-enquiry";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
@@ -6,41 +8,30 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 
-// Client's WhatsApp number — country code + number, digits only (+91 77699 78772)
+// Public business WhatsApp number, country code and digits only.
 const WHATSAPP_NUMBER = "918208802554";
 
 export const Route = createFileRoute("/contact")({
+  validateSearch: (search: Record<string, unknown>): { product?: string } => ({
+    product: typeof search.product === "string" && productOptions.includes(search.product) ? search.product : undefined,
+  }),
   head: () => ({
     meta: [
-      { title: "Contact Us — SunilWays Exports Pvt Ltd" },
+      { title: "Request an Export Quotation | SunilWays Exports" },
       {
         name: "description",
         content:
-          "Contact SunilWays Exports for inquiries, sourcing and partnerships. Talere, Kankavli, Sindhudurga, Maharashtra. +91 82088 02554 · office@sunilwaysexports.com",
+          "Contact SunilWays Exports with your product, quantity, specifications and destination. Continue your enquiry by WhatsApp, email or phone.",
       },
       { property: "og:title", content: "Contact — SunilWays Exports Pvt Ltd" },
       { property: "og:description", content: "Get in touch for inquiries, sourcing and partnerships." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://www.sunilwaysexports.com/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://www.sunilwaysexports.com/contact" }],
   }),
   component: ContactPage,
 });
 
-const productOptions = [
-  "All Products",
-  "Kokum",
-  "Cashew Nuts",
-  "Spices",
-  "Dry Fish",
-  "Coconut Products",
-  "Rice",
-  "Mango Products",
-  "Pickles",
-  "Engineering Goods & Industrial Products",
-  "Dry Cow Dung",
-  "Others",
-];
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(100),
@@ -59,15 +50,18 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 function ContactPage() {
+  const { product } = Route.useSearch();
   const {
     register,
     handleSubmit,
-    reset,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { product: "All Products" },
+    defaultValues: { product: product ?? "All Products" },
   });
+
+  useEffect(() => { setValue("product", product ?? "All Products"); }, [product, setValue]);
 
   const onSubmit = (data: FormValues) => {
     const lines = [
@@ -86,8 +80,7 @@ function ContactPage() {
 
     window.open(url, "_blank");
 
-    toast.success("Opening WhatsApp… tap Send to deliver your enquiry.");
-    reset({ product: "All Products" });
+    toast.info("Continue in WhatsApp and tap Send to deliver your enquiry. Your form details have been kept here.");
   };
 
   return (
@@ -155,7 +148,7 @@ function ContactPage() {
                   <input type="text" {...register("country")} className="input" placeholder="Country" />
                 </Field>
                 <Field label="Product(s) of Interest" error={errors.product?.message}>
-                  <select {...register("product")} className="input">
+                  <select {...register("product")} defaultValue={product ?? "All Products"} className="input">
                     {productOptions.map((o) => (
                       <option key={o} value={o}>{o}</option>
                     ))}
@@ -173,7 +166,7 @@ function ContactPage() {
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-accent text-primary font-semibold hover:bg-accent/90 transition disabled:opacity-60"
                   >
                     <WhatsAppIcon className="h-5 w-5" />
-                    {isSubmitting ? "Sending..." : "Send Enquiry →"}
+                    {isSubmitting ? "Opening WhatsApp..." : "Continue in WhatsApp →"}
                   </button>
                 </div>
               </form>

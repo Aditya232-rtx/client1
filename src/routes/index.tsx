@@ -30,11 +30,11 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SunilWays Exports Pvt Ltd — Indian Agricultural & Engineering Exports" },
+      { title: "Indian Agricultural & Engineering Exports | SunilWays" },
       {
         name: "description",
         content:
-          "SunilWays Exports sources Indian agricultural and Konkan food products, engineering goods and industrial supplies for global buyers, with supplier coordination, quality assurance and export logistics.",
+          "Source Indian agricultural and Konkan food products, engineering goods and industrial supplies. Discuss specifications and export enquiries with SunilWays.",
       },
       { property: "og:title", content: "SunilWays Exports Pvt Ltd" },
       {
@@ -42,9 +42,9 @@ export const Route = createFileRoute("/")({
         content:
           "Indian agricultural products, engineering goods and industrial supplies — sourced for global markets.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://www.sunilwaysexports.com/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://www.sunilwaysexports.com/" }],
   }),
   component: HomePage,
 });
