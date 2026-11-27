@@ -1,4 +1,8 @@
+# SunilWays Exports public crawling policy
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_build/
+Disallow: /_server/
 
 Sitemap: https://www.sunilwaysexports.com/sitemap.xml
