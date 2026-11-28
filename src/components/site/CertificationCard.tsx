@@ -14,7 +14,7 @@ export function CertificationCard({
   const content = compact ? (
     <>
       {c.logo ? (
-        <img src={c.logo} alt={`${c.name} logo`} className="h-16 max-w-full object-contain" loading="lazy" />
+        <img src={c.logo} alt={`${c.name} logo`} width={160} height={96} className="h-16 max-w-full object-contain" loading="lazy" />
       ) : (
         <FileText className="h-10 w-10 text-primary" aria-hidden="true" />
       )}
@@ -26,7 +26,7 @@ export function CertificationCard({
       <div className="flex items-start gap-4">
         <div className="h-20 w-20 rounded-lg bg-white border border-border flex items-center justify-center shrink-0 overflow-hidden p-2">
           {c.logo ? (
-            <img src={c.logo} alt={`${c.name} logo`} className="max-h-full max-w-full object-contain" loading="lazy" />
+            <img src={c.logo} alt={`${c.name} logo`} width={160} height={96} className="max-h-full max-w-full object-contain" loading="lazy" />
           ) : (
             <FileText className="h-10 w-10 text-primary" aria-hidden="true" />
           )}

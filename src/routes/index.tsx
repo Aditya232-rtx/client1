@@ -297,6 +297,8 @@ function PersonMini({ photo, initials, name, role, index }: { photo: string; ini
           <img
             src={photo}
             alt={name}
+            width={160}
+            height={160}
             className="h-full w-full object-cover object-[center_10%]"
           />
         </div>

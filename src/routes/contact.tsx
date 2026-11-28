@@ -126,29 +126,29 @@ function ContactPage() {
             <div className="bg-cream rounded-xl border border-border p-6 sm:p-8">
               <h2 className="text-2xl font-semibold text-primary section-heading">Send an Enquiry</h2>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit(onSubmit)} data-webmcp-form="export-enquiry" data-webmcp-description="Request an export quotation from SunilWays Exports" className="mt-6 grid sm:grid-cols-2 gap-4">
                 <Field label="Full Name *" error={errors.name?.message}>
                   <input
                     type="text"
-                    {...register("name")}
+                    {...register("name")} name="name" autoComplete="name"
                     className="input"
                     placeholder="Your full name"
                   />
                 </Field>
                 <Field label="Company Name" error={errors.company?.message}>
-                  <input type="text" {...register("company")} className="input" placeholder="Company (optional)" />
+                  <input type="text" {...register("company")} name="company" autoComplete="organization" className="input" placeholder="Company (optional)" />
                 </Field>
                 <Field label="Email Address *" error={errors.email?.message}>
-                  <input type="email" {...register("email")} className="input" placeholder="you@example.com" />
+                  <input type="email" {...register("email")} name="email" autoComplete="email" className="input" placeholder="you@example.com" />
                 </Field>
                 <Field label="Phone Number *" error={errors.phone?.message}>
-                  <input type="tel" {...register("phone")} className="input" placeholder="+91 ..." />
+                  <input type="tel" {...register("phone")} name="phone" autoComplete="tel" className="input" placeholder="+91 ..." />
                 </Field>
                 <Field label="Country" error={errors.country?.message}>
-                  <input type="text" {...register("country")} className="input" placeholder="Country" />
+                  <input type="text" {...register("country")} name="country" autoComplete="country-name" className="input" placeholder="Country" />
                 </Field>
                 <Field label="Product(s) of Interest" error={errors.product?.message}>
-                  <select {...register("product")} defaultValue={product ?? "All Products"} className="input">
+                  <select {...register("product")} name="product" data-webmcp-param="product" defaultValue={product ?? "All Products"} className="input">
                     {productOptions.map((o) => (
                       <option key={o} value={o}>{o}</option>
                     ))}
@@ -156,7 +156,7 @@ function ContactPage() {
                 </Field>
                 <div className="sm:col-span-2">
                   <Field label="Message / Inquiry Details *" error={errors.message?.message}>
-                    <textarea {...register("message")} rows={5} className="input resize-y" placeholder="Tell us about your requirement..." />
+                    <textarea {...register("message")} name="message" rows={5} className="input resize-y" placeholder="Tell us about your requirement..." />
                   </Field>
                 </div>
                 <div className="sm:col-span-2">

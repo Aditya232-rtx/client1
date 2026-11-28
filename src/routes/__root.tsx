@@ -12,6 +12,8 @@ import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { RootLayout } from "@/components/site/RootLayout";
+import { registerSunilWaysTools } from "@/lib/webmcp";
+import { useEffect } from "react";
 
 function NotFoundComponent() {
   return (
@@ -77,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "SunilWays Exports sources Indian agricultural and Konkan food products, engineering goods and industrial supplies for global buyers, with supplier coordination, quality assurance and export logistics.",
+          "SunilWays Exports, based in Talere, Kankavli, Sindhudurg Konkan, handles Indian product sourcing, imports and exports for global buyers.",
       },
       { name: "author", content: "SunilWays Exports Pvt Ltd" },
       { property: "og:type", content: "website" },
@@ -92,6 +94,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "llms", href: "/llms.txt", type: "text/markdown" },
+      { rel: "ard", href: "/.well-known/ard.json", type: "application/json" },
       {
         rel: "preload",
         as: "font",
@@ -107,7 +111,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         crossOrigin: "",
       },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
-      { rel: "icon", type: "image/png", href: "/sunilways-logo.png" },
+      { rel: "icon", type: "image/png", href: "/favicon-32.png" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "shortcut icon", href: "/favicon-32.png" },
     ],
@@ -129,7 +133,7 @@ function RootShell({ children }: { children: ReactNode }) {
           "@id": "https://www.sunilwaysexports.com/#organization",
           name: "SunilWays Exports Pvt Ltd",
           url: "https://www.sunilwaysexports.com/",
-          logo: "https://www.sunilwaysexports.com/sunilways-logo.png",
+          logo: "https://www.sunilwaysexports.com/sunilways-logo.webp",
           email: "office@sunilwaysexports.com",
           telephone: "+918208802554",
         }).replace(/</g, "\\u003c") }} />
@@ -144,6 +148,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => registerSunilWaysTools(), []);
 
   return (
     <QueryClientProvider client={queryClient}>

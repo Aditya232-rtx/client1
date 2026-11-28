@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EngineeringGoodsRouteImport } from './routes/engineering-goods'
 import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProductsSlugRouteImport } from './routes/products_.$slug'
 import { Route as ProductsAlphonsoMangoPulpRouteImport } from './routes/products_.alphonso-mango-pulp'
 import { Route as ProductsCashewKernelsRouteImport } from './routes/products_.cashew-kernels'
 import { Route as ProductsIndianSpicesRouteImport } from './routes/products_.indian-spices'
@@ -50,6 +51,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products_/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsAlphonsoMangoPulpRoute =
   ProductsAlphonsoMangoPulpRouteImport.update({
     id: '/products_/alphonso-mango-pulp',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/engineering-goods': typeof EngineeringGoodsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/products/alphonso-mango-pulp': typeof ProductsAlphonsoMangoPulpRoute
   '/products/cashew-kernels': typeof ProductsCashewKernelsRoute
   '/products/indian-spices': typeof ProductsIndianSpicesRoute
@@ -91,6 +98,7 @@ export interface FileRoutesByTo {
   '/engineering-goods': typeof EngineeringGoodsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
   '/products/alphonso-mango-pulp': typeof ProductsAlphonsoMangoPulpRoute
   '/products/cashew-kernels': typeof ProductsCashewKernelsRoute
   '/products/indian-spices': typeof ProductsIndianSpicesRoute
@@ -104,6 +112,7 @@ export interface FileRoutesById {
   '/engineering-goods': typeof EngineeringGoodsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/products_/$slug': typeof ProductsSlugRoute
   '/products_/alphonso-mango-pulp': typeof ProductsAlphonsoMangoPulpRoute
   '/products_/cashew-kernels': typeof ProductsCashewKernelsRoute
   '/products_/indian-spices': typeof ProductsIndianSpicesRoute
@@ -118,6 +127,7 @@ export interface FileRouteTypes {
     | '/engineering-goods'
     | '/products'
     | '/services'
+    | '/products/$slug'
     | '/products/alphonso-mango-pulp'
     | '/products/cashew-kernels'
     | '/products/indian-spices'
@@ -130,6 +140,7 @@ export interface FileRouteTypes {
     | '/engineering-goods'
     | '/products'
     | '/services'
+    | '/products/$slug'
     | '/products/alphonso-mango-pulp'
     | '/products/cashew-kernels'
     | '/products/indian-spices'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/engineering-goods'
     | '/products'
     | '/services'
+    | '/products_/$slug'
     | '/products_/alphonso-mango-pulp'
     | '/products_/cashew-kernels'
     | '/products_/indian-spices'
@@ -155,6 +167,7 @@ export interface RootRouteChildren {
   EngineeringGoodsRoute: typeof EngineeringGoodsRoute
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
   ProductsAlphonsoMangoPulpRoute: typeof ProductsAlphonsoMangoPulpRoute
   ProductsCashewKernelsRoute: typeof ProductsCashewKernelsRoute
   ProductsIndianSpicesRoute: typeof ProductsIndianSpicesRoute
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products_/$slug': {
+      id: '/products_/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products_/alphonso-mango-pulp': {
       id: '/products_/alphonso-mango-pulp'
       path: '/products/alphonso-mango-pulp'
@@ -243,6 +263,7 @@ const rootRouteChildren: RootRouteChildren = {
   EngineeringGoodsRoute: EngineeringGoodsRoute,
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
   ProductsAlphonsoMangoPulpRoute: ProductsAlphonsoMangoPulpRoute,
   ProductsCashewKernelsRoute: ProductsCashewKernelsRoute,
   ProductsIndianSpicesRoute: ProductsIndianSpicesRoute,

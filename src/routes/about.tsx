@@ -125,6 +125,8 @@ function AboutPage() {
                       <img
                         src={p.photo}
                         alt={p.name}
+                        width={176}
+                        height={176}
                         className="h-full w-full object-cover object-[center_10%]"
                       />
                     </div>

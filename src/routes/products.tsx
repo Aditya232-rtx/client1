@@ -5,6 +5,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { catalog } from "@/components/site/data";
+import { productPath } from "@/lib/product-routes";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/products")({
       {
         name: "description",
         content:
-          "Explore agricultural and food products, kokum, cashews, dry cow dung and engineering goods. View listed origins, grades and packaging before enquiring.",
+          "Browse Indian agricultural products and engineering goods from SunilWays Exports, with origin, grades and packaging for product-specific export enquiries.",
       },
       { property: "og:title", content: "Product Catalog — SunilWays Exports" },
       { property: "og:description", content: "Agricultural products, engineering goods and industrial supplies for B2B sourcing and export." },
@@ -76,19 +77,21 @@ function ProductsPage() {
                   id={`product-${it.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`}
                   className="group flex flex-col bg-white rounded-xl border border-border overflow-hidden hover:border-accent hover:shadow-[0_8px_24px_rgba(27,45,95,0.08)] transition-all"
                 >
-                  <div className="aspect-[4/3] overflow-hidden bg-cream">
+                  <Link to={productPath(it)} aria-label={`View ${it.name} sourcing page`} className="block aspect-[4/3] overflow-hidden bg-cream">
                     <img
                       src={typeof it.image === "string" ? it.image : it.image.src}
                       srcSet={typeof it.image === "string" ? undefined : it.image.srcSet}
                       sizes={typeof it.image === "string" ? undefined : it.image.sizes}
-                      alt={it.name}
+                      alt={`${it.name} from ${it.origin}`}
+                      width={960}
+                      height={720}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
+                  </Link>
                   <div className="flex flex-col flex-1 p-4">
                     <h3 className="text-sm sm:text-base font-semibold text-primary leading-tight">
-                      {it.name}
+                      <Link to={productPath(it)} className="hover:underline">{it.name}</Link>
                     </h3>
                     <dl className="mt-3 space-y-2 text-xs">
                       <Detail label="Origin" value={it.origin} />

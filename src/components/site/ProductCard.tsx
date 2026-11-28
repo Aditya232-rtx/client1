@@ -11,6 +11,8 @@ export function ProductCard({ product }: { product: Product }) {
           srcSet={product.image.srcSet}
           sizes={product.image.sizes}
           alt={product.name}
+          width={960}
+          height={720}
           loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />

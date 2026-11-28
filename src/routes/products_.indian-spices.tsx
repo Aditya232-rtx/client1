@@ -15,7 +15,7 @@ head: () => ({
     },
     {
       "name": "description",
-      "content": "Source Indian spices with listed origins and bulk packs: Sangli turmeric, Guntur chilli, Malabar pepper, cumin and coriander. Discuss your wholesale requirements."
+      "content": "Source Indian spices with listed origins and bulk packs: Sangli turmeric, Guntur chilli, Malabar pepper, cumin and coriander. Request a wholesale quote."
     },
     {
       "property": "og:title",

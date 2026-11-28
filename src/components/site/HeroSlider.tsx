@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import heroMango from "@/assets/optimized/generated/category-mango-jackfruit-960.webp";
+import heroKokum from "@/assets/optimized/generated/category-kokum-960.webp";
+import heroCashew from "@/assets/optimized/generated/category-dry-fruits-cashew-960.webp";
 
 type Slide = {
   image: string;
@@ -10,24 +13,21 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    image:
-      "https://images.unsplash.com/photo-1532336414038-cf19250c5757?auto=format&fit=crop&w=1920&q=80",
+    image: heroMango,
     tag: "Premium Indian Agricultural & Konkan Specialty Products for Global Buyers",
     heading: "Welcome to SunilWays Exports Pvt Ltd",
     subtext:
       "Your trusted partner for premium Indian agricultural produce and traditional food products.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1920&q=80",
+    image: heroKokum,
     tag: "TRUSTED SINCE INCEPTION",
     heading: "We Export the Best of Konkan",
     subtext:
       "Kokum, Cashew Nuts, Dry Fish, Spices & more — sourced from the heart of Sindhudurga.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80",
+    image: heroCashew,
     tag: "FARM TO GLOBAL MARKETS",
     heading: "From Farm to Global Markets",
     subtext:
@@ -51,8 +51,7 @@ export function HeroSlider() {
           style={{ opacity: i === active ? 1 : 0 }}
           aria-hidden={i !== active}
         >
-          <img src={s.image} alt="" width={1920} height={1280}
-            srcSet={[640, 960, 1280, 1920].map((width) => `${s.image.replace("w=1920", `w=${width}`)} ${width}w`).join(", ")}
+          <img src={s.image} alt="" width={960} height={720}
             sizes="100vw" loading={i === 0 ? "eager" : "lazy"}
             fetchPriority={i === 0 ? "high" : "low"} decoding="async" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/60" />
