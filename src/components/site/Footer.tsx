@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Mail, Linkedin, Instagram, Facebook } from "lucide-react";
-import logo from "@/assets/sunilways-logo.png";
+const logo = "/sunilways-logo.webp";
 
 export function Footer() {
   return (
@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="bg-white/95 rounded-lg p-3 inline-block">
-            <img src={logo} alt="SunilWays Exports" className="h-16 w-auto" />
+            <img src={logo} alt="SunilWays Exports" width={240} height={171} loading="lazy" decoding="async" className="h-16 w-auto" />
           </div>
           <p className="mt-4 text-sm text-white/75 leading-relaxed max-w-xs">
             Connecting Indian Quality to Global Markets.
@@ -21,7 +21,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-semibold mb-4 text-base">Quick Links</h4>
+          <h2 className="text-white font-semibold mb-4 text-base">Quick Links</h2>
           <ul className="space-y-2 text-sm text-white/75">
             <FLink to="/">Home</FLink>
             <FLink to="/about">About Company</FLink>
@@ -33,20 +33,22 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-semibold mb-4 text-base">Products</h4>
+          <h2 className="text-white font-semibold mb-4 text-base">Products</h2>
           <ul className="space-y-2 text-sm text-white/75">
-            <FLink to="/products">Kokum &​amp; Derivatives</FLink>
-            <FLink to="/products">Cashew Nuts</FLink>
-            <FLink to="/products">Spices</FLink>
+            <FLink to="/products/kokum">Kokum &amp; Derivatives</FLink>
+            <FLink to="/products/cashew-kernels">Cashew Kernels</FLink>
+            <FLink to="/products/indian-spices">Spices</FLink>
             <FLink to="/products">Coconut Products</FLink>
             <FLink to="/products">Dry Fish</FLink>
-            <FLink to="/products">Mango &​amp; Jackfruit Products</FLink>
+            <FLink to="/products">Mango &amp; Jackfruit Products</FLink>
+            <FLink to="/engineering-goods">Engineering &amp; Industrial Products</FLink>
+            <FLink to="/products" hash="natural-agricultural-byproducts">Dry Cow Dung</FLink>
             <FLink to="/products">View All Products</FLink>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-white font-semibold mb-4 text-base">Contact</h4>
+          <h2 className="text-white font-semibold mb-4 text-base">Contact</h2>
           <ul className="space-y-3 text-sm text-white/80">
             <li className="flex gap-2.5">
               <MapPin className="h-4 w-4 text-accent shrink-0 mt-0.5" />
@@ -91,7 +93,7 @@ function SocialIcon({ href, label, children }: { href: string; label: string; ch
     <a
       href={href}
       aria-label={label}
-      className="h-9 w-9 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-accent hover:border-accent transition"
+      className="h-11 w-11 rounded-full border border-white/20 flex items-center justify-center text-white/80 hover:text-accent hover:border-accent transition"
     >
       {children}
     </a>

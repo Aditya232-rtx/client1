@@ -1,24 +1,26 @@
+import { EngineeringSection } from "@/components/site/EngineeringSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { catalog } from "@/components/site/data";
+import { productPath } from "@/lib/product-routes";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
-      { title: "Product Catalog — SunilWays Exports Pvt Ltd" },
+      { title: "Export Product Catalog | SunilWays Exports" },
       {
         name: "description",
         content:
-          "Detailed catalog: fresh fruits & vegetables, rice & grains, cashew & dry fruits, spices, coconut products, jaggery, honey, kokum and more — for domestic trade and export.",
+          "Browse Indian agricultural products and engineering goods from SunilWays Exports, with origin, grades and packaging for product-specific export enquiries.",
       },
       { property: "og:title", content: "Product Catalog — SunilWays Exports" },
-      { property: "og:description", content: "Detailed B2B catalog of Indian agricultural produce and traditional Konkan food products." },
-      { property: "og:url", content: "/products" },
+      { property: "og:description", content: "Agricultural products, engineering goods and industrial supplies for B2B sourcing and export." },
+      { property: "og:url", content: "https://www.sunilwaysexports.com/products" },
     ],
-    links: [{ rel: "canonical", href: "/products" }],
+    links: [{ rel: "canonical", href: "https://www.sunilwaysexports.com/products" }],
   }),
   component: ProductsPage,
 });
@@ -31,16 +33,17 @@ function ProductsPage() {
       <section className="py-14 bg-white">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <p className="text-muted-foreground leading-relaxed">
-            We deal in a wide range of agricultural produce and traditional food products, sourced
-            directly from the Konkan coast and across India. All items below are available for
-            domestic trading and international export, in custom packaging and bulk quantities.
+            We source agricultural produce, traditional food and personal care products, natural
+            by-products, engineering goods and industrial supplies from across India. Contact
+            our team for product specifications, packaging and export requirements.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <a href="#engineering-goods" className="min-h-11 text-xs sm:text-sm px-3 py-2.5 rounded-full border border-primary text-primary hover:bg-cream transition">Engineering Goods &amp; Industrial Products</a>
             {catalog.map((c) => (
               <a
                 key={c.slug}
                 href={`#${c.slug}`}
-                className="text-xs sm:text-sm px-3 py-1.5 rounded-full border border-border text-foreground/70 hover:border-accent hover:text-primary transition"
+                className="min-h-11 text-xs sm:text-sm px-3 py-2.5 rounded-full border border-border text-foreground hover:border-accent hover:text-primary transition"
               >
                 {c.title}
               </a>
@@ -48,6 +51,12 @@ function ProductsPage() {
           </div>
         </div>
       </section>
+
+      <div className="mx-auto max-w-7xl px-4 py-6">
+        <Link to="/engineering-goods" className="font-semibold text-primary underline">Engineering goods sourcing and quotation requirements</Link>
+      </div>
+      <div className="mx-auto max-w-7xl px-4 pb-6"><Link to="/products/indian-spices" className="font-semibold text-primary underline">Indian spice origins, grades and wholesale sourcing</Link></div>
+      <EngineeringSection />
 
       {catalog.map((cat, idx) => (
         <section
@@ -61,29 +70,38 @@ function ProductsPage() {
               title={cat.title}
               subtitle={cat.blurb}
             />
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className={`mt-10 grid gap-5 ${cat.items.length === 1 ? "max-w-md mx-auto grid-cols-1" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"}`}>
               {cat.items.map((it) => (
                 <div
                   key={it.name}
+                  id={`product-${it.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "")}`}
                   className="group flex flex-col bg-white rounded-xl border border-border overflow-hidden hover:border-accent hover:shadow-[0_8px_24px_rgba(27,45,95,0.08)] transition-all"
                 >
-                  <div className="aspect-[4/3] overflow-hidden bg-cream">
+                  <Link to={productPath(it)} aria-label={`View ${it.name} sourcing page`} className="block aspect-[4/3] overflow-hidden bg-cream">
                     <img
-                      src={it.image}
-                      alt={it.name}
+                      src={typeof it.image === "string" ? it.image : it.image.src}
+                      srcSet={typeof it.image === "string" ? undefined : it.image.srcSet}
+                      sizes={typeof it.image === "string" ? undefined : it.image.sizes}
+                      alt={`${it.name} from ${it.origin}`}
+                      width={960}
+                      height={720}
                       loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                  </div>
+                  </Link>
                   <div className="flex flex-col flex-1 p-4">
                     <h3 className="text-sm sm:text-base font-semibold text-primary leading-tight">
-                      {it.name}
+                      <Link to={productPath(it)} className="hover:underline">{it.name}</Link>
                     </h3>
                     <dl className="mt-3 space-y-2 text-xs">
                       <Detail label="Origin" value={it.origin} />
                       <Detail label="Available Grades" value={it.grades} />
                       <Detail label="Packaging" value={it.packaging} />
                     </dl>
+                    <Link to="/contact" search={{ product: it.name }} className="mt-4 inline-flex min-h-11 items-center text-sm font-semibold text-primary underline">Enquire about {it.name}</Link>
+                    {it.name === "Cashew Kernels" && <Link to="/products/cashew-kernels" className="mt-2 py-2 text-sm text-primary underline">Sindhudurga cashew grades and sourcing</Link>}
+                    {it.name === "Kokum" && <Link to="/products/kokum" className="mt-2 py-2 text-sm text-primary underline">Konkan kokum supply details</Link>}
+                    {it.name === "Fruit Pulp" && <Link to="/products/alphonso-mango-pulp" className="mt-2 py-2 text-sm text-primary underline">Alphonso mango pulp enquiries</Link>}
                   </div>
                 </div>
               ))}
@@ -91,7 +109,7 @@ function ProductsPage() {
             <div className="mt-8 text-center">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all"
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all"
               >
                 Enquire about {cat.title} <ArrowRight className="h-4 w-4" />
               </Link>

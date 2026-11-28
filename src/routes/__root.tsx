@@ -6,11 +6,14 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { RootLayout } from "@/components/site/RootLayout";
+import { registerSunilWaysTools } from "@/lib/webmcp";
+import { useEffect } from "react";
 
 function NotFoundComponent() {
   return (
@@ -34,7 +37,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
 
@@ -72,11 +75,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SunilWays Exports Pvt Ltd — Indian Agricultural & Konkan Food Exports" },
+      { title: "SunilWays Exports Pvt Ltd — Agricultural & Engineering Goods Exports" },
       {
         name: "description",
         content:
-          "Premium and reliable export house for Indian agricultural and Konkan food products. Trusted global partner for kokum, cashew, spices, dry fish, coconut, rice and mango with end-to-end sourcing, quality processing and timely worldwide delivery.",
+          "SunilWays Exports, based in Talere, Kankavli, Sindhudurg Konkan, handles Indian product sourcing, imports and exports for global buyers.",
       },
       { name: "author", content: "SunilWays Exports Pvt Ltd" },
       { property: "og:type", content: "website" },
@@ -85,20 +88,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Premium Indian agricultural and traditional Konkan food products — sourced, processed and exported worldwide.",
+          "Indian agricultural products, engineering goods and industrial supplies — sourced for global markets.",
       },
       { name: "twitter:card", content: "summary" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      { rel: "llms", href: "/llms.txt", type: "text/markdown" },
+      { rel: "ard", href: "/.well-known/ard.json", type: "application/json" },
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap",
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/inter-latin.woff2",
+        crossOrigin: "",
+      },
+      {
+        rel: "preload",
+        as: "font",
+        type: "font/woff2",
+        href: "/fonts/poppins-latin.woff2",
+        crossOrigin: "",
       },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
-      { rel: "icon", type: "image/png", href: "/sunilways-logo.png" },
+      { rel: "icon", type: "image/png", href: "/favicon-32.png" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
       { rel: "shortcut icon", href: "/favicon-32.png" },
     ],
@@ -114,6 +127,16 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.sunilwaysexports.com/#organization",
+          name: "SunilWays Exports Pvt Ltd",
+          url: "https://www.sunilwaysexports.com/",
+          logo: "https://www.sunilwaysexports.com/sunilways-logo.webp",
+          email: "office@sunilwaysexports.com",
+          telephone: "+918208802554",
+        }).replace(/</g, "\\u003c") }} />
       </head>
       <body>
         {children}
@@ -125,6 +148,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => registerSunilWaysTools(), []);
 
   return (
     <QueryClientProvider client={queryClient}>

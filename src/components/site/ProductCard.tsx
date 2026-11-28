@@ -7,8 +7,12 @@ export function ProductCard({ product }: { product: Product }) {
     <div className="group bg-white rounded-xl border border-border overflow-hidden hover:border-accent hover:shadow-[0_8px_28px_rgba(27,45,95,0.10)] transition-all">
       <div className="aspect-[4/3] overflow-hidden bg-cream">
         <img
-          src={product.image}
+          src={product.image.src}
+          srcSet={product.image.srcSet}
+          sizes={product.image.sizes}
           alt={product.name}
+          width={960}
+          height={720}
           loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
@@ -18,7 +22,7 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{product.short}</p>
         <Link
           to="/contact"
-          className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:gap-2.5 transition-all"
+          className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-accent hover:gap-2.5 transition-all"
         >
           Enquire Now <ArrowRight className="h-3.5 w-3.5" />
         </Link>

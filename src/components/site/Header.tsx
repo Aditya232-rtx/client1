@@ -1,19 +1,21 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/sunilways-logo.png";
+const logo = "/sunilways-logo.webp";
 
 const productItems = [
-  { label: "Fruits & Vegetables", to: "/products" },
-  { label: "Spices", to: "/products" },
-  { label: "Dry Fruits & Cashew Nuts", to: "/products" },
-  { label: "Kokum & Derivatives", to: "/products" },
+  { label: "Engineering & Industrial Products", to: "/engineering-goods" },
+  { label: "Dry Cow Dung", to: "/products", hash: "natural-agricultural-byproducts" },
+  { label: "Fruits & Vegetables", to: "/products", hash: "fresh-fruits" },
+  { label: "Spices", to: "/products/indian-spices" },
+  { label: "Dry Fruits & Cashew Nuts", to: "/products/cashew-kernels" },
+  { label: "Kokum & Derivatives", to: "/products/kokum" },
   { label: "Dry Fish", to: "/products" },
-  { label: "Coconut Products", to: "/products" },
-  { label: "Rice", to: "/products" },
-  { label: "Mango & Jackfruit Products", to: "/products" },
-  { label: "Pickles & Condiments", to: "/products" },
-  { label: "Onion & Grapes", to: "/products" },
+  { label: "Coconut Products", to: "/products", hash: "coconut-products" },
+  { label: "Rice", to: "/products", hash: "rice-grains" },
+  { label: "Mango & Jackfruit Products", to: "/products", hash: "natural-processed" },
+  { label: "Pickles & Condiments", to: "/products", hash: "natural-processed" },
+  { label: "Onion & Grapes", to: "/products", hash: "fresh-vegetables" },
 ] as const;
 
 const aboutItems = [
@@ -41,7 +43,7 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 h-16 sm:h-20 flex items-center justify-between overflow-visible">
         <Link to="/" className="flex items-center gap-3 relative" aria-label="SunilWays Exports — Home">
-          <img src={logo} alt="SunilWays Exports Pvt Ltd" className="h-12 sm:h-16 w-auto" />
+          <img src={logo} alt="SunilWays Exports Pvt Ltd" width={240} height={171} fetchPriority="high" className="h-12 sm:h-16 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -53,7 +55,7 @@ export function Header() {
         </nav>
 
         <button
-          className="lg:hidden p-2 text-primary"
+          className="lg:hidden min-h-11 min-w-11 p-2.5 text-primary"
           onClick={() => setOpen(true)}
           aria-label="Open menu"
         >
@@ -64,8 +66,8 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 bg-white lg:hidden flex flex-col">
           <div className="flex items-center justify-between px-4 h-16 border-b border-border">
-            <img src={logo} alt="SunilWays Exports" className="h-12 w-auto" />
-            <button onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-primary">
+            <img src={logo} alt="SunilWays Exports" width={240} height={171} className="h-12 w-auto" />
+            <button onClick={() => setOpen(false)} aria-label="Close menu" className="min-h-11 min-w-11 p-2.5 text-primary">
               <X className="h-6 w-6" />
             </button>
           </div>
@@ -89,7 +91,7 @@ function NavLink({ to, children, exact }: { to: string; children: React.ReactNod
       activeOptions={{ exact: !!exact }}
       activeProps={{ className: "text-primary nav-active" }}
       inactiveProps={{ className: "text-foreground/80 hover:text-primary" }}
-      className="relative px-4 py-2 text-sm font-medium transition-colors group"
+      className="relative px-4 py-3 text-sm font-medium transition-colors group"
     >
       {children}
       <span className="absolute left-4 right-4 -bottom-0.5 h-[2px] bg-accent scale-x-0 group-[.nav-active]:scale-x-100 group-hover:scale-x-100 origin-left transition-transform" />
@@ -112,7 +114,7 @@ function Dropdown({
         to={to}
         activeProps={{ className: "text-primary nav-active" }}
         inactiveProps={{ className: "text-foreground/80 hover:text-primary" }}
-        className="relative px-4 py-2 text-sm font-medium flex items-center gap-1 transition-colors"
+        className="relative px-4 py-3 text-sm font-medium flex items-center gap-1 transition-colors"
       >
         {label}
         <ChevronDown className="h-3.5 w-3.5 transition group-hover:rotate-180" />
@@ -125,7 +127,7 @@ function Dropdown({
               key={it.label}
               to={it.to}
               hash={it.hash}
-              className="block px-3 py-2 text-sm text-foreground/80 hover:bg-cream hover:text-primary rounded-md transition"
+              className="block min-h-11 px-3 py-3 text-sm text-foreground/80 hover:bg-cream hover:text-primary rounded-md transition"
             >
               {it.label}
             </Link>

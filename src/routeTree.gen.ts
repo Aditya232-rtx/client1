@@ -9,25 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ProductsRouteImport } from './routes/products'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EngineeringGoodsRouteImport } from './routes/engineering-goods'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ProductsSlugRouteImport } from './routes/products_.$slug'
+import { Route as ProductsAlphonsoMangoPulpRouteImport } from './routes/products_.alphonso-mango-pulp'
+import { Route as ProductsCashewKernelsRouteImport } from './routes/products_.cashew-kernels'
+import { Route as ProductsIndianSpicesRouteImport } from './routes/products_.indian-spices'
+import { Route as ProductsKokumRouteImport } from './routes/products_.kokum'
 
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductsRoute = ProductsRouteImport.update({
-  id: '/products',
-  path: '/products',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -35,9 +31,50 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngineeringGoodsRoute = EngineeringGoodsRouteImport.update({
+  id: '/engineering-goods',
+  path: '/engineering-goods',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsSlugRoute = ProductsSlugRouteImport.update({
+  id: '/products_/$slug',
+  path: '/products/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsAlphonsoMangoPulpRoute =
+  ProductsAlphonsoMangoPulpRouteImport.update({
+    id: '/products_/alphonso-mango-pulp',
+    path: '/products/alphonso-mango-pulp',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductsCashewKernelsRoute = ProductsCashewKernelsRouteImport.update({
+  id: '/products_/cashew-kernels',
+  path: '/products/cashew-kernels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndianSpicesRoute = ProductsIndianSpicesRouteImport.update({
+  id: '/products_/indian-spices',
+  path: '/products/indian-spices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsKokumRoute = ProductsKokumRouteImport.update({
+  id: '/products_/kokum',
+  path: '/products/kokum',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -45,61 +82,105 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/engineering-goods': typeof EngineeringGoodsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/alphonso-mango-pulp': typeof ProductsAlphonsoMangoPulpRoute
+  '/products/cashew-kernels': typeof ProductsCashewKernelsRoute
+  '/products/indian-spices': typeof ProductsIndianSpicesRoute
+  '/products/kokum': typeof ProductsKokumRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/engineering-goods': typeof EngineeringGoodsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/products/$slug': typeof ProductsSlugRoute
+  '/products/alphonso-mango-pulp': typeof ProductsAlphonsoMangoPulpRoute
+  '/products/cashew-kernels': typeof ProductsCashewKernelsRoute
+  '/products/indian-spices': typeof ProductsIndianSpicesRoute
+  '/products/kokum': typeof ProductsKokumRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/engineering-goods': typeof EngineeringGoodsRoute
   '/products': typeof ProductsRoute
   '/services': typeof ServicesRoute
+  '/products_/$slug': typeof ProductsSlugRoute
+  '/products_/alphonso-mango-pulp': typeof ProductsAlphonsoMangoPulpRoute
+  '/products_/cashew-kernels': typeof ProductsCashewKernelsRoute
+  '/products_/indian-spices': typeof ProductsIndianSpicesRoute
+  '/products_/kokum': typeof ProductsKokumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/products' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/engineering-goods'
+    | '/products'
+    | '/services'
+    | '/products/$slug'
+    | '/products/alphonso-mango-pulp'
+    | '/products/cashew-kernels'
+    | '/products/indian-spices'
+    | '/products/kokum'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/products' | '/services'
-  id: '__root__' | '/' | '/about' | '/contact' | '/products' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/engineering-goods'
+    | '/products'
+    | '/services'
+    | '/products/$slug'
+    | '/products/alphonso-mango-pulp'
+    | '/products/cashew-kernels'
+    | '/products/indian-spices'
+    | '/products/kokum'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/engineering-goods'
+    | '/products'
+    | '/services'
+    | '/products_/$slug'
+    | '/products_/alphonso-mango-pulp'
+    | '/products_/cashew-kernels'
+    | '/products_/indian-spices'
+    | '/products_/kokum'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  EngineeringGoodsRoute: typeof EngineeringGoodsRoute
   ProductsRoute: typeof ProductsRoute
   ServicesRoute: typeof ServicesRoute
+  ProductsSlugRoute: typeof ProductsSlugRoute
+  ProductsAlphonsoMangoPulpRoute: typeof ProductsAlphonsoMangoPulpRoute
+  ProductsCashewKernelsRoute: typeof ProductsCashewKernelsRoute
+  ProductsIndianSpicesRoute: typeof ProductsIndianSpicesRoute
+  ProductsKokumRoute: typeof ProductsKokumRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products': {
-      id: '/products'
-      path: '/products'
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -109,11 +190,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/engineering-goods': {
+      id: '/engineering-goods'
+      path: '/engineering-goods'
+      fullPath: '/engineering-goods'
+      preLoaderRoute: typeof EngineeringGoodsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products_/$slug': {
+      id: '/products_/$slug'
+      path: '/products/$slug'
+      fullPath: '/products/$slug'
+      preLoaderRoute: typeof ProductsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products_/alphonso-mango-pulp': {
+      id: '/products_/alphonso-mango-pulp'
+      path: '/products/alphonso-mango-pulp'
+      fullPath: '/products/alphonso-mango-pulp'
+      preLoaderRoute: typeof ProductsAlphonsoMangoPulpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products_/cashew-kernels': {
+      id: '/products_/cashew-kernels'
+      path: '/products/cashew-kernels'
+      fullPath: '/products/cashew-kernels'
+      preLoaderRoute: typeof ProductsCashewKernelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products_/indian-spices': {
+      id: '/products_/indian-spices'
+      path: '/products/indian-spices'
+      fullPath: '/products/indian-spices'
+      preLoaderRoute: typeof ProductsIndianSpicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products_/kokum': {
+      id: '/products_/kokum'
+      path: '/products/kokum'
+      fullPath: '/products/kokum'
+      preLoaderRoute: typeof ProductsKokumRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -123,8 +260,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  EngineeringGoodsRoute: EngineeringGoodsRoute,
   ProductsRoute: ProductsRoute,
   ServicesRoute: ServicesRoute,
+  ProductsSlugRoute: ProductsSlugRoute,
+  ProductsAlphonsoMangoPulpRoute: ProductsAlphonsoMangoPulpRoute,
+  ProductsCashewKernelsRoute: ProductsCashewKernelsRoute,
+  ProductsIndianSpicesRoute: ProductsIndianSpicesRoute,
+  ProductsKokumRoute: ProductsKokumRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
